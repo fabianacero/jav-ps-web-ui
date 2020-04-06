@@ -1,0 +1,21 @@
+@import 'src/assets/scss/_variables.scss';
+.banner {
+  padding-top: 5rem;
+  &__element {
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 22rem;
+    width: 100%;
+    &.first {
+      background-image: url("src/assets/images/banner_01.jpeg");
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .banner {
+    &__element {
+      min-height: 50rem;
+    }
+  }
+}

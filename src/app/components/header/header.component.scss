@@ -1,0 +1,38 @@
+@import 'src/assets/scss/_variables.scss';
+.header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid gray;
+  font-family: "Baloo 2";
+  position: fixed;
+  width: 100%;
+
+  &__nav {
+    align-content: unset;
+    display: flex;
+    justify-content: center;
+
+    > a {
+      color: gray;
+      font-size: 1.7rem;
+      line-height: 5rem;
+      padding: 0 1rem;
+      text-decoration: none;
+
+      &.active {
+        background: #e6e6e9;
+        border-bottom: solid;
+      }
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  .header {
+    &__nav {
+      > a {
+        margin: 0 3rem;
+        padding: 0 2.2rem;
+      }
+    }
+  }
+}

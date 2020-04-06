@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'src/assets/scss/modules/_fonts.scss';
+@import 'src/assets/scss/_variables.scss';
+html {
+  font-size: 62.5%;
+
+  body {
+    margin: 0;
+  }
+}
