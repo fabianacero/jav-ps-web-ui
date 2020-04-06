@@ -28,10 +28,10 @@ export class HeaderComponent implements OnInit {
   }
 
   @HostListener("window:scroll", ['$event'])
-  private onScrollMove(event: Event) {
+  public onScrollMove(event: Event) {
     let reverseMenuItems = this.getReverseItems();
     //let scrollOffset = event.srcElement.children[0].scrollTop;
-    const currentScrollPosition = Number.parseInt(window.scrollY) + 30;
+    const currentScrollPosition = window.scrollY + 30;
     reverseMenuItems.every((menuItem, key) => {
       let section = menuItem.getAttribute("href");
       let elementToStroll = document.querySelector(section);
