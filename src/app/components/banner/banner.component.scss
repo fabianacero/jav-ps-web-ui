@@ -1,13 +1,65 @@
 @import 'src/assets/scss/_variables.scss';
+
 .banner {
   padding-top: 5rem;
+  font-family: "Baloo 2";
+
+  & > figure {
+    margin: 0;
+    & > div {
+      display: none;
+      margin: 0px auto;
+    }
+    &.visible > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
   &__element {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 22rem;
     width: 100%;
+
+    & > figcaption {
+      font-size: 3.5rem;
+      font-weight: bold;
+      max-width: 57rem;
+      text-align: right;
+    }
+
     &.first {
       background-image: url("src/assets/images/banner_01.jpeg");
+      color: #03377b;
+      & > figcaption {
+        align-self: flex-end;
+        margin: 0 10rem 0 0;
+        display: block;
+      }
+    }
+
+    &.second {
+      background-image: url("src/assets/images/banner_02.jpeg");
+      color: #03377b;
+      & > figcaption {
+        align-self: flex-start;
+        margin: 0 0 0 10rem;
+        display: block;
+      }
+    }
+
+    &.third {
+      background-image: url("src/assets/images/banner_03.jpeg");
+      color: #e6e6e9;
+      & > figcaption {
+        align-self: flex-start;
+        margin: 0 0 0 10rem;
+        display: block;
+      }
     }
   }
 }
