@@ -1,4 +1,16 @@
-.services {
-  height: 50rem;
+div.services {
+  align-items: center;
   background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+  font-family: "Baloo 2";
+  height: 50rem;
+  justify-content: flex-start;
+
+  > h2 {
+    color: #555;
+    font-size: 3rem;
+    margin-top: 5rem;
+    text-align: center;
+  }
 }

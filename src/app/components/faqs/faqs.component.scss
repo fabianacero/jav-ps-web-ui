@@ -1,4 +1,57 @@
-.faqs {
-  height: 100rem;
-  background-color: pink;
+@import 'src/assets/scss/_variables.scss';
+div.faqs {
+  align-items: center;
+  background-color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  font-family: "Baloo 2";
+  justify-content: flex-start;
+
+  > h2 {
+    color: #555;
+    font-size: 3rem;
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__element {
+    border: solid 0.1rem #ccc;
+    color: #808080;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 5rem;
+    max-height: 20rem;
+    max-width: 30rem;
+    min-height: 20rem;
+    min-width: 30rem;
+    padding: 3rem 0.5rem 0.5rem;
+    text-align: center;
+
+    > h3 {
+      font-size: 1.8rem;
+      margin: 0.4rem 0.8rem 0;
+    }
+
+    > p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin: 0.9rem 1.4rem;
+    }
+  }
+}
+
+@media (min-width: $breakpoint-desktop) {
+  div.faqs {
+    &__container {
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin: 0 5rem;
+      width: 100%;
+    }
+  }
 }

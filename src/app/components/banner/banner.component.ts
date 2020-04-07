@@ -13,13 +13,13 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.moveBanner()
+      this.moveBanner();
     }, this.slideInterval);
   }
 
   public moveBanner() {
     let pointer = 0;
-    let figures = this.getBannerElements();
+    const figures = this.getBannerElements();
     for (let i = 0; i < figures.length; i++) {
       if (figures[i].className == 'visible') {
         figures[i].className = 'hidden';
@@ -31,7 +31,7 @@ export class BannerComponent implements OnInit {
     }
     figures[pointer].className = 'visible';
     setTimeout(() => {
-      this.moveBanner()
+      this.moveBanner();
     }, this.slideInterval);
   }
 
