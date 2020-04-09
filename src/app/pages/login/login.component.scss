@@ -1,3 +1,5 @@
+@import 'src/assets/scss/_forms.scss';
+
 * {
   font-size: 62.5%;
   font-family: "Baloo 2";
@@ -31,6 +33,7 @@ button:disabled {
     display: flex;
     height: 20rem;
     justify-content: center;
+
     > p {
       color: #6ea6d1;
       font-size: 2.5rem;
@@ -64,8 +67,9 @@ button:disabled {
       border-radius: 0.6rem;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       min-width: 340px;
+      padding-top: 3rem;
 
       & > input {
         align-self: center;
@@ -82,9 +86,22 @@ button:disabled {
   &__button {
     align-self: center;
     display: flex;
+    flex-direction: column;
     height: 25px;
-    justify-content: center;
+    text-align: center;
     width: 250px;
+
+    > button {
+      margin: 3rem auto 0;
+    }
+  }
+
+  &__error {
+    color: $error-color-dark;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    margin-top: 1rem;
   }
 }
 

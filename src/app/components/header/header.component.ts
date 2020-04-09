@@ -1,16 +1,40 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import {Routes} from '../../enums/routes.enum';
+import {Session} from '../../models/session';
+import {Utilities} from '../../utilities/utilities';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
-  constructor() {
+  public routes = Routes;
+  public session: Session;
+
+  constructor(private utilities: Utilities, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.checkForSession();
+  }
+
+  ngAfterViewInit() {
+    this.addMenuEvents();
+  }
+
+  private checkForSession() {
+    this.session = this.utilities.getFromSessionObject('session', this.session);
+  }
+
+  public logOut() {
+    sessionStorage.removeItem('session');
+    this.router.navigate([Routes.HOME]);
+  }
+
+  private addMenuEvents() {
     const self = this;
     document.querySelectorAll('.header__nav > a').forEach(function(menu) {
       menu.addEventListener('click', (event) => {
@@ -24,6 +48,16 @@ export class HeaderComponent implements OnInit {
           () => console.log(`Just finished scrolling to ${window.pageYOffset}px`)
         );
       });
+    });
+
+    document.querySelector('.header__account').addEventListener('click', (event) => {
+      const menuOptions = document.querySelector('.header__account--options');
+      const active = 'active';
+      if (menuOptions.classList.contains(active)) {
+        menuOptions.classList.remove(active);
+      } else {
+        menuOptions.classList.add(active);
+      }
     });
   }
 

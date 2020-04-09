@@ -1,24 +1,27 @@
 <div class="registration__background">
-  <p>otizaciones</p>
+  <p [routerLink]="[routes.HOME]">otizaciones<span>.com</span></p>
   <div class="registration__form">
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
           [appMustMatch]="['password', 'confirmPassword']" novalidate>
       <p class="registration__title">Crea tu cuenta <span>¡comienza a cotizar!</span></p>
-      <div class="forms__form--input">
-        <label for="firstName" class="forms__label">Nombre</label>
-        <input name="firstName" id="firstName" type="text" [(ngModel)]="model.firstName" required>
-      </div>
 
-      <div class="forms__form--input">
-        <label for="lastName" class="forms__label">Apellido</label>
-        <input name="lastName" id="lastName" type="text" [(ngModel)]="model.lastName" required>
+      <div class=" forms__form--inline">
+        <div class="forms__form--input">
+          <label for="firstName" class="forms__label">Nombres</label>
+          <input name="firstName" id="firstName" type="text" [(ngModel)]="model.firstName" required>
+        </div>
+
+        <div class="forms__form--input">
+          <label for="lastName" class="forms__label">Apellidos</label>
+          <input name="lastName" id="lastName" type="text" [(ngModel)]="model.lastName" required>
+        </div>
       </div>
 
       <div class=" forms__form--inline">
         <div class="forms__form--select">
           <label for="documentType" class="forms__label">Documento</label>
           <select name="documentType" id="documentType" [(ngModel)]="model.documentType" required>
-            <option value=" 1">Cédula</option>
+            <option value="1">Cédula</option>
             <option value="2">Nit</option>
           </select>
         </div>
@@ -30,9 +33,21 @@
         </div>
       </div>
 
+      <div class="forms__form--inline">
+        <div class="forms__form--input">
+          <label for="email" class="forms__label">Email</label>
+          <input name="email" id="email" type="text" [(ngModel)]="model.email" required>
+        </div>
+
+        <div class="forms__form--input">
+          <label for="phone" class="forms__label">Celular</label>
+          <input name="phone" id="phone" type="text" [(ngModel)]="model.phone" required>
+        </div>
+      </div>
+
       <div class="forms__form--input">
-        <label for="email" class="forms__label">Email</label>
-        <input name="email" id="email" type="text" [(ngModel)]="model.email" required>
+        <label for="user" class="forms__label">Usuario</label>
+        <input name="user" id="user" type="text" [(ngModel)]="model.user" required>
       </div>
 
       <div class="forms__form--inline">
@@ -48,6 +63,7 @@
                  [(ngModel)]="model.confirmPassword"
                  #confirmPassword="ngModel" required>
         </div>
+
       </div>
 
       <div class="registration__button">

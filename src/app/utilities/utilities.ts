@@ -14,7 +14,7 @@ export class Utilities {
     return btoa(JSON.stringify(item));
   }
 
-  decodeJsonElement(item, objectToMap?) {
+  decodeJsonElement(item, objectToMap) {
     if (!item) {
       return objectToMap;
     }
@@ -22,9 +22,13 @@ export class Utilities {
   }
 
   recursiveAssign(object, json) {
-    if (Object(json) !== json) return json;
-    if (Object(object) !== object) object = {};
-    for (let key in json) {
+    if (Object(json) !== json) {
+      return json;
+    }
+    if (Object(object) !== object) {
+      object = {};
+    }
+    for (const key in json) {
       object[key] = this.recursiveAssign(object[key], json[key]);
     }
     return object;
@@ -45,7 +49,7 @@ export class Utilities {
   }
 
   public isEmpty(obj) {
-    for (var key in obj) {
+    for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
         return false;
       }
@@ -63,15 +67,22 @@ export class Utilities {
   }
 
   public getFromSession(name, decode?: boolean) {
-    const sessionItem = sessionStorage.getItem(name);
-    let elementOnStorage = null;
-    if (!sessionItem) {
-      return sessionItem;
-    }
-    elementOnStorage = atob(sessionItem);
+    let elementOnStorage = atob(sessionStorage.getItem(name));
     if (typeof decode !== 'undefined' && decode) {
       elementOnStorage = decodeURIComponent(escape(elementOnStorage));
     }
     return JSON.parse(elementOnStorage) ? JSON.parse(elementOnStorage) : elementOnStorage;
+  }
+
+  public getFromSessionObject(name, objectToMap, decode?: boolean) {
+    let elementOnStorage = sessionStorage.getItem(name);
+    if (!elementOnStorage) {
+      return objectToMap;
+    }
+
+    if (typeof decode !== 'undefined' && decode) {
+      elementOnStorage = decodeURIComponent(escape(elementOnStorage));
+    }
+    return this.decodeJsonElement(elementOnStorage, objectToMap);
   }
 }

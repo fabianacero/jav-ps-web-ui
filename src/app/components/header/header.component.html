@@ -9,10 +9,33 @@
       <a href="#productos">Productos</a>
       <a href="#servicios">Servicios</a>
       <a href="#preguntas" class="faqs">Preguntas Frecuentes</a>
-      <div class="header__login">
-        <a [routerLink]="['/crea-tu-cuenta']">Crea Tu Cuenta</a>
-        <a [routerLink]="['/ingresa']">Ingresa</a>
+      <div *ngIf="!session" class="header__login">
+        <a [routerLink]="[routes.REGISTRATION]">Crea Tu Cuenta</a>
+        <a [routerLink]="[routes.LOGIN]">Ingresa</a>
+      </div>
+      <div *ngIf="session" class="header__account">
+        <a class="header__account--menu">
+          <span class="material-icons">account_box</span>
+          <span>{{session.firstName}}</span>
+        </a>
       </div>
     </nav>
+  </div>
+  <div *ngIf="session" class="header__account--options">
+    <div class="account">
+      <div class="account__menu">
+        <ul>
+          <li>Cotizaciones</li>
+          <li>Mis Datos</li>
+          <li>Seguridad</li>
+          <li (click)="logOut()">Salir</li>
+        </ul>
+      </div>
+      <div class="account__general">
+        <p>Hola, {{session.firstName}}</p>
+        <span>{{session.userCode}}</span>
+        <a>Mi cuenta</a>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
 export enum ServiceResponse {
-  SUCESS = 1,
-  ERROR = 2
+  SUCESS = 200,
+  ERROR = 400
 }

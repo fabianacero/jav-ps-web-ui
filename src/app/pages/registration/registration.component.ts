@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import {Customer} from '../../models/customer';
-import {MustMatch} from '../../validators/must-match.validator';
+import {Router} from '@angular/router';
+import {Routes} from '../../enums/routes.enum';
+import {RegistrationService} from '../../provider/registration/registration.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,29 +13,28 @@ import {MustMatch} from '../../validators/must-match.validator';
 export class RegistrationComponent implements OnInit {
 
   public model: Customer;
-  private registerForm: FormGroup;
+  public routes = Routes;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private registration: RegistrationService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.model = new Customer();
     this.model.documentType = 1;
-    /*this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    }, {
-      validator: MustMatch('password', 'confirmPassword')
-    });*/
   }
 
-  public onSubmit(loginForm: NgForm) {
-    if (!loginForm.valid) {
+  public onSubmit(registerForm: NgForm) {
+    if (!registerForm.valid) {
       return false;
     }
-  }
 
+    this.registration.customerRegistry(registerForm).subscribe((response: any) => {
+      alert('Usuario creado correctamente!');
+      this.router.navigate([Routes.LOGIN]);
+    }, (error) => {
+      registerForm.form.controls.userName.setErrors({incorrect: true});
+      return false;
+    });
+
+  }
 }

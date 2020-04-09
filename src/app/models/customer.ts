@@ -6,7 +6,24 @@ export class Customer {
   private _email: string;
   private _password: string;
   private _confirmPassword: string;
+  private _phone: number;
+  private _user;
 
+  get user() {
+    return this._user;
+  }
+
+  set user(value) {
+    this._user = value;
+  }
+
+  get phone(): number {
+    return this._phone;
+  }
+
+  set phone(value: number) {
+    this._phone = value;
+  }
 
   get confirmPassword(): string {
     return this._confirmPassword;

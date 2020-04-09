@@ -1,11 +1,19 @@
 <div class="login__background">
-  <p>otizaciones</p>
+  <p [routerLink]="[routes.HOME]">otizaciones</p>
   <div class="login__form">
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
-      <input name="user" id="login-user" type="text" placeholder="Usuario" ngModel required>
-      <input name="password" id="login-password" type="password" placeholder="Clave" ngModel required>
+      <div class="forms__form--input">
+        <label for="user" class="forms__label">Usuario</label>
+        <input id="user" name="user" id="login-user" type="text" ngModel required>
+      </div>
+      <div class="forms__form--input">
+        <label for="password" class="forms__label">Clave</label>
+        <input id="password" name="password" id="login-password" type="password" ngModel required>
+      </div>
+
       <div class="login__button">
         <button id="login-button" type="submit" class="button" [disabled]="!loginForm.valid">Ingresar</button>
+        <div *ngIf="errorMessage" class="login__error">{{errorMessage}}<span>{{errorCode}}</span></div>
       </div>
     </form>
   </div>

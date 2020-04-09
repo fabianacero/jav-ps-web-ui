@@ -18,6 +18,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpRequestService} from './provider/http-request/http-request.service';
 import {HttpClientModule} from '@angular/common/http';
 import { MustMatchDirective } from './directives/must-match.directive';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MustMatchDirective } from './directives/must-match.directive';
     FaqsComponent,
     RegistrationComponent,
     LoginComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
