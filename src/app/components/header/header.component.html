@@ -1,7 +1,18 @@
 <div class="header" (window:scroll)="onScrollMove($event)">
-  <nav class="header__nav">
-    <a href="#productos">Productos</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#preguntas" class="faqs">Preguntas Frecuentes</a>
-  </nav>
+  <div class="header__container">
+    <div class="header__logo"></div>
+    <p class="header__button"><a (click)="menuAction()"><span class="material-icons">menu</span></a></p>
+  </div>
+  <div class="header__navigation">
+    <div class="header__logo header__navigation--logo"></div>
+    <nav class="header__nav" id="menu_options">
+      <a href="#productos">Productos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#preguntas" class="faqs">Preguntas Frecuentes</a>
+      <div class="header__login">
+        <a [routerLink]="['/crea-tu-cuenta']">Crea Tu Cuenta</a>
+        <a [routerLink]="['/ingresa']">Ingresa</a>
+      </div>
+    </nav>
+  </div>
 </div>

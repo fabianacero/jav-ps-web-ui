@@ -8,10 +8,18 @@
   width: 100%;
   z-index: 2;
 
-  &__nav {
-    align-content: unset;
+  &__container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    font-size: 1.4rem;
+    justify-content: space-between;
+    margin: 0 2rem;
+  }
+
+  &__nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
 
     > a {
       color: gray;
@@ -23,21 +31,89 @@
       &.active {
         background: #e6e6e9;
         border-bottom: solid;
+
         &.faqs {
           border-bottom: solid #5b9f9f;
         }
       }
     }
   }
+
+  &__login {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-left: 1rem;
+
+    > a {
+      color: gray;
+      font-size: 1.7rem;
+      line-height: 5rem;
+      text-decoration: none;
+    }
+  }
+
+  &__logo {
+    background-image: url("src/assets/images/logo.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 5rem;
+    height: 6rem;
+    width: 6rem;
+  }
+
+  &__button {
+    cursor: pointer;
+
+    &:hover {
+      > span {
+        background: #9e9e9e;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-around;
+
+    &--logo {
+      display: none;
+    }
+  }
 }
 
 @media (min-width: $breakpoint-desktop) {
   .header {
+
+    &__container {
+      display: none;
+    }
+
     &__nav {
+      align-content: unset;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
       > a {
         margin: 0 3rem;
         padding: 0 2.2rem;
       }
+    }
+
+    &__login {
+      margin-left: 0.5rem;
+
+      > a {
+        font-size: 1.3rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    &__navigation {
+      display: flex;
+      justify-content: space-around;
     }
   }
 }

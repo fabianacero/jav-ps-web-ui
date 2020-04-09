@@ -1,0 +1,62 @@
+<div class="registration__background">
+  <p>otizaciones</p>
+  <div class="registration__form">
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
+          [appMustMatch]="['password', 'confirmPassword']" novalidate>
+      <p class="registration__title">Crea tu cuenta <span>¡comienza a cotizar!</span></p>
+      <div class="forms__form--input">
+        <label for="firstName" class="forms__label">Nombre</label>
+        <input name="firstName" id="firstName" type="text" [(ngModel)]="model.firstName" required>
+      </div>
+
+      <div class="forms__form--input">
+        <label for="lastName" class="forms__label">Apellido</label>
+        <input name="lastName" id="lastName" type="text" [(ngModel)]="model.lastName" required>
+      </div>
+
+      <div class=" forms__form--inline">
+        <div class="forms__form--select">
+          <label for="documentType" class="forms__label">Documento</label>
+          <select name="documentType" id="documentType" [(ngModel)]="model.documentType" required>
+            <option value=" 1">Cédula</option>
+            <option value="2">Nit</option>
+          </select>
+        </div>
+
+        <div class="forms__form--input input90">
+          <label for="documentNumber" class="forms__label"></label>
+          <input name="documentNumber" id="documentNumber" type="text" [(ngModel)]="model.documentNumber"
+                 required>
+        </div>
+      </div>
+
+      <div class="forms__form--input">
+        <label for="email" class="forms__label">Email</label>
+        <input name="email" id="email" type="text" [(ngModel)]="model.email" required>
+      </div>
+
+      <div class="forms__form--inline">
+        <div class="forms__form--input">
+          <label for="password" class="forms__label">Password</label>
+          <input name="password" id="password" type="password" [(ngModel)]="model.password" #password="ngModel"
+                 required>
+        </div>
+
+        <div class="forms__form--input">
+          <label class="forms__label">Confirmar</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required
+                 [(ngModel)]="model.confirmPassword"
+                 #confirmPassword="ngModel" required>
+        </div>
+      </div>
+
+      <div class="registration__button">
+        <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
+          Ingresar
+        </button>
+      </div>
+    </form>
+  </div>
+  <pre>{{ model | json }}</pre>
+  <pre>{{ registerForm.value | json }}</pre>
+</div>

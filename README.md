@@ -1,5 +1,36 @@
-# JavPsWebUiNg
+# Pontificia Universidad Javeriana. Bogotá.
+## jav-ps-web-ui
 
+Landing page y aplicación de la solición de cotizaciones online, para al trabajo "socialización II" de la asignatura patrones 
+de diseño, en la Especialización de Arquitectura de Software Empresarial 2020 I.
+
+### Integrantes:
+
+* Andres Martinez Cobos
+* Fabian Acero
+* Robinson Torres
+
+# Instalación
+
+Para la ejecución de los siguientes pasos, es necesario tener instalados nodejs, npm y angular-cli
+
+### Descargar el proyecto
+```bash
+git clone git@github.com:fabianacero/jav-ps-web-ui.git
+```
+
+### Obtener dependencias
+```bash
+cd jav-ps-web-ui
+npm i
+```
+
+### Servir el proyecto
+```bash
+ng serve --open --port 4300
+```
+
+# Especificaciones adicionales
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.5.
 
 ## Development server

@@ -11,13 +11,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const _self = this;
-    document.querySelectorAll('.header__nav > a').forEach(function (menu) {
+    const self = this;
+    document.querySelectorAll('.header__nav > a').forEach(function(menu) {
       menu.addEventListener('click', (event) => {
         event.preventDefault();
-        const destination = menu.getAttribute("href");
+        const destination = menu.getAttribute('href');
         const element = document.querySelector(destination);
-        _self.scrollIt(
+        self.scrollIt(
           element,
           300,
           'easeOutQuad',
@@ -27,19 +27,27 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  @HostListener("window:scroll", ['$event'])
+  public menuAction() {
+    const menuOptions = document.getElementById('menu_options');
+    if (menuOptions.style.display === 'flex') {
+      menuOptions.style.display = 'none';
+    } else {
+      menuOptions.style.display = 'flex';
+    }
+  }
+
+  @HostListener('window:scroll', ['$event'])
   public onScrollMove(event: Event) {
-    let reverseMenuItems = this.getReverseItems();
-    //let scrollOffset = event.srcElement.children[0].scrollTop;
+    const reverseMenuItems = this.getReverseItems();
     const currentScrollPosition = window.scrollY + 30;
     reverseMenuItems.every((menuItem, key) => {
-      let section = menuItem.getAttribute("href");
-      let elementToStroll = document.querySelector(section);
+      const section = menuItem.getAttribute('href');
+      const elementToStroll = document.querySelector(section);
       if (elementToStroll.offsetTop > 0 && currentScrollPosition >= Number.parseInt(elementToStroll.offsetTop)) {
         document.querySelectorAll('.active').forEach((menu) => {
           menu.classList.remove('active');
         });
-        menuItem.classList.add('active')
+        menuItem.classList.add('active');
         return false;
       }
       return true;
@@ -47,7 +55,7 @@ export class HeaderComponent implements OnInit {
   }
 
   private getReverseItems() {
-    const menuItems = document.querySelectorAll(".header__nav > a");
+    const menuItems = document.querySelectorAll('.header__nav > a');
     let reverseMenuItems = [];
     menuItems.forEach((menuItem, key) => {
       reverseMenuItems[key] = menuItem;
