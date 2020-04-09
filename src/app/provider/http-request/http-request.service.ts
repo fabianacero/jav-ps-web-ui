@@ -67,16 +67,13 @@ export class HttpRequestService {
   }
 
   private extractData(response: Response) {
-    debugger
     if (response && response.status > ServiceResponse.ERROR) {
       throwError(`Controlled error ${response.status}`);
     }
-    debugger
     return response.body;
   }
 
   private handleError(error: HttpErrorResponse) {
-    debugger
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);
     } else {
