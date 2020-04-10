@@ -1,4 +1,5 @@
 @import 'src/assets/scss/_variables.scss';
+
 div.faqs {
   align-items: center;
   background-color: #ecf0f1;
@@ -25,9 +26,7 @@ div.faqs {
     color: #808080;
     display: flex;
     flex-direction: column;
-    margin: 0 0 5rem;
-    max-height: 20rem;
-    max-width: 30rem;
+    margin: 2rem 5rem;
     min-height: 20rem;
     min-width: 30rem;
     padding: 3rem 0.5rem 0.5rem;
@@ -49,10 +48,16 @@ div.faqs {
 @media (min-width: $breakpoint-desktop) {
   div.faqs {
     &__container {
-      flex-direction: row;
+      flex-flow: row wrap;
+      position: relative;
       justify-content: space-evenly;
       margin: 0 5rem;
       width: 100%;
+    }
+
+    &__element {
+      flex: 0 1 calc(30% - 8px);
+      margin: 2rem;
     }
   }
 }
