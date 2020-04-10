@@ -50,15 +50,18 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       });
     });
 
-    document.querySelector('.header__account').addEventListener('click', (event) => {
-      const menuOptions = document.querySelector('.header__account--options');
-      const active = 'active';
-      if (menuOptions.classList.contains(active)) {
-        menuOptions.classList.remove(active);
-      } else {
-        menuOptions.classList.add(active);
-      }
-    });
+    const accountMenu = document.querySelector('.header__account');
+    if (accountMenu) {
+      accountMenu.addEventListener('click', (event) => {
+        const menuOptions = document.querySelector('.header__account--options');
+        const active = 'active';
+        if (menuOptions.classList.contains(active)) {
+          menuOptions.classList.remove(active);
+        } else {
+          menuOptions.classList.add(active);
+        }
+      });
+    }
   }
 
   public menuAction() {

@@ -1,3 +1,5 @@
+@import 'src/assets/scss/_variables.scss';
+
 div.services {
   align-items: center;
   background-color: antiquewhite;
@@ -8,7 +10,7 @@ div.services {
   justify-content: flex-start;
 
   > h2 {
-    color: #555;
+    color: $title-h2-color;
     font-size: 3rem;
     margin-top: 5rem;
     text-align: center;

@@ -19,6 +19,8 @@ import {HttpRequestService} from './provider/http-request/http-request.service';
 import {HttpClientModule} from '@angular/common/http';
 import { MustMatchDirective } from './directives/must-match.directive';
 import { AccountComponent } from './pages/account/account.component';
+import { CryptPipe } from './pipes/crypt.pipe';
+import { ProductsDirective } from './directives/products.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AccountComponent } from './pages/account/account.component';
     RegistrationComponent,
     LoginComponent,
     MustMatchDirective,
-    AccountComponent
+    AccountComponent,
+    CryptPipe,
+    ProductsDirective
   ],
   imports: [
     BrowserModule,

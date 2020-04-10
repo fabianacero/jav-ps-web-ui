@@ -1,9 +1,209 @@
+@import 'src/assets/scss/_variables.scss';
+@import 'src/assets/scss/_forms.scss';
+
 div.products {
   align-items: center;
-  background-color: antiquewhite;
+  background-color: white;
   display: flex;
   flex-direction: column;
   font-family: "Baloo 2";
-  height: 50rem;
   justify-content: flex-start;
+
+  > h2 {
+    color: $title-h2-color;
+    font-size: 3rem;
+    margin-top: 5rem;
+    text-align: center;
+    text-decoration: underline $product-main-color;
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__subcategory {
+
+    > h3 {
+      text-transform: lowercase;
+      font-size: 2rem;
+      text-align: center;
+
+      &::first-letter {
+        text-transform: uppercase;
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+
+    & * {
+      flex: 1 1 calc(86% - 1.8rem);
+    }
+  }
+
+  &__category {
+    -moz-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    -webkit-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    cursor: pointer;
+    margin: 1rem;
+    min-height: 10rem;
+    padding: 1rem;
+    perspective: 1000px;
+
+    &:hover {
+      -webkit-box-shadow: -4px 3px 67px -12px rgba(128, 128, 128, 0.65);
+      -moz-box-shadow: -4px 3px 67px -12px rgba(128, 128, 128, 0.65);
+      box-shadow: -4px 3px 67px -12px rgba(128, 128, 128, 0.65);
+    }
+
+    > h3 {
+      color: $title-h2-subtitle;
+      font-size: 1.5rem;
+      margin: 0.2rem;
+      text-transform: lowercase;
+    }
+
+    > span {
+      padding-left: 0.5rem;
+      border-left: solid 0.4rem #ff5447;
+    }
+  }
+
+  &__inner {
+    min-height: 20rem;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+
+    > div {
+      position: absolute;
+      width: 100%;
+      height: 20rem;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+  }
+
+  &__form {
+    transform: rotateY(180deg);
+
+    &.clicked {
+      transform: rotateY(360deg);
+    }
+
+    &--header {
+      display: flex;
+      justify-content: flex-end;
+
+      .back {
+        background: #e6e6e9;
+        border-radius: 50%;
+        box-shadow: -1px 1px #484848;
+        color: #747474;
+        font-size: 1.5rem;
+        height: 2rem;
+        line-height: 2rem;
+        max-height: 2rem;
+        max-width: 2rem;
+        text-align: center;
+      }
+    }
+
+    > h2 {
+      color: $title-h2-color;
+      font-size: 1.1rem;
+      margin: 0.2rem;
+    }
+
+    > p {
+      font-size: 1.2rem;
+      margin: 0.3rem;
+    }
+
+    > form {
+      margin: 0.3rem 0 0;
+    }
+
+  }
+
+  &__image {
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 1.5rem;
+
+    &.clicked {
+      transform: rotateY(180deg);
+    }
+
+    &.celulares {
+      background-image: url('src/assets/images/products/phone.png');
+      background-position: 0rem -30rem;
+    }
+
+    &.computadores {
+      background-image: url('src/assets/images/products/computer.jpg');
+      background-position: -3rem -12rem;
+    }
+
+    &.televisores {
+      background-image: url('src/assets/images/products/television.jpg');
+      background-position: -2rem -18rem;
+    }
+
+    &.zapatos {
+      background-image: url('src/assets/images/products/zapatos.png');
+      background-position: 0rem -36rem;
+    }
+
+    &.mesas {
+      background-image: url('src/assets/images/products/mesa.jpg');
+      background-position: -3rem -35rem;
+    }
+
+    &.biblioteca {
+      background-image: url('src/assets/images/products/library.jpg');
+      background-position: -3rem -23rem;
+    }
+  }
+
+  .forms {
+    &__form {
+      &--input {
+        margin: 0;
+      }
+    }
+
+    &__label {
+      color: #c16464;
+      margin: 0.2rem;
+    }
+
+    &__button {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+
+    &__subcategory {
+      margin: 0 20%;
+    }
+
+    &__category {
+      margin: 1rem 3rem;
+      padding: 0.5rem 2rem;
+    }
+
+    &__group {
+      & * {
+        flex: 0 0 calc(40% - 0.8rem);
+      }
+    }
+  }
+
 }

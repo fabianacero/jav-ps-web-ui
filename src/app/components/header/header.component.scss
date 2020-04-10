@@ -33,7 +33,11 @@
         border-bottom: solid;
 
         &.faqs {
-          border-bottom: solid #5b9f9f;
+          border-bottom: solid $faqs-main-color;
+        }
+
+        &.products {
+          border-bottom: solid $product-main-color;
         }
       }
     }

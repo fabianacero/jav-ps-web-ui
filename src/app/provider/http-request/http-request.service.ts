@@ -20,8 +20,11 @@ export class HttpRequestService {
   constructor(private http: HttpClient) {
   }
 
-  public request(url: string, params: any, method?, additionalOptions?): Observable<any> {
+  public request(url: string, params?: any, method?, additionalOptions?): Observable<any> {
     let options = {};
+    if (!params) {
+      params = {};
+    }
     const body = JSON.stringify(params);
     let result: Observable<any>;
 

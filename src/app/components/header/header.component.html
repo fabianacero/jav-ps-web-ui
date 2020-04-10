@@ -6,8 +6,8 @@
   <div class="header__navigation">
     <div class="header__logo header__navigation--logo"></div>
     <nav class="header__nav" id="menu_options">
-      <a href="#productos">Productos</a>
-      <a href="#servicios">Servicios</a>
+      <a href="#productos" class="products">Productos</a>
+      <a href="#servicios" class="services">Servicios</a>
       <a href="#preguntas" class="faqs">Preguntas Frecuentes</a>
       <div *ngIf="!session" class="header__login">
         <a [routerLink]="[routes.REGISTRATION]">Crea Tu Cuenta</a>

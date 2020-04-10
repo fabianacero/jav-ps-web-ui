@@ -4,5 +4,17 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/product-service/*": {
+    "target": "http://localhost:7072",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/sub-category/*": {
+    "target": "http://localhost:7072",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }
