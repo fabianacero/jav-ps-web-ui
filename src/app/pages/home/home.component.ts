@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   public product: ProductServiceDetail;
   public service: ProductServiceDetail;
   public productsBySubCategory;
+  public servicesBySubCategory;
 
   constructor(private productsService: ProductsService, private utilities: Utilities) {
   }
@@ -26,6 +27,8 @@ export class HomeComponent implements OnInit {
       });
       this.productsBySubCategory = this.utilities.groupBy(this.product, 'subCategoryDescription');
       this.productsBySubCategory = Object.values(this.productsBySubCategory);
+      this.servicesBySubCategory = this.utilities.groupBy(this.service, 'subCategoryDescription');
+      this.servicesBySubCategory = Object.values(this.servicesBySubCategory);
     });
   }
 

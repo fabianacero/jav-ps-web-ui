@@ -13,14 +13,13 @@ export class ProductsDirective {
     const toggledClass = 'clicked';
     const isBackButton = element.contains('back');
     const isAddButton = element.contains('button');
-    const image = this.el.nativeElement.querySelector('.products__image');
-    const form = this.el.nativeElement.querySelector('.products__form');
-
+    const image = this.el.nativeElement.querySelector('.prodserv__image');
+    const form = this.el.nativeElement.querySelector('.prodserv__form');
     if (!form.classList.contains(toggledClass) || isBackButton) {
       image.classList.toggle(toggledClass);
       form.classList.toggle(toggledClass);
     } else if (isAddButton) {
-      const formElement = this.el.nativeElement.querySelector('.products__form > form');
+      const formElement = this.el.nativeElement.querySelector('.prodserv__form > form');
       console.log('form', formElement);
     }
   }

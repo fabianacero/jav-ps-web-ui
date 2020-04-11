@@ -8,9 +8,9 @@
              *ngFor="let group of product">
           <h3>{{group['productServiceDescription']}}</h3>
           <div class="products__inner">
-            <div class="products__image {{group['productServiceDescription'] | lowercase}}"></div>
-            <div class="products__form">
-              <div class="products__form--header"><span class="back">x</span></div>
+            <div class="prodserv__image {{group['productServiceDescription'] | lowercase}}"></div>
+            <div class="prodserv__form">
+              <div class="prodserv__form--header"><span class="back">x</span></div>
               <h2>Cotiza {{group['productServiceDescription']}}</h2>
               <p>Ingresa tu cotización para poder procesarla y enviarla a nuestros proveedores</p>
               <form>
