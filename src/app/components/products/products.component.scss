@@ -135,6 +135,7 @@ div.products {
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 1.5rem;
+    background-image: url('src/assets/images/products/def-products.jpg');
 
     &.clicked {
       transform: rotateY(180deg);
@@ -142,12 +143,13 @@ div.products {
 
     &.celulares {
       background-image: url('src/assets/images/products/phone.png');
-      background-position: 0rem -30rem;
+      background-position: 7.8rem -1rem;
+      background-size: 30rem;
     }
 
     &.computadores {
       background-image: url('src/assets/images/products/computer.jpg');
-      background-position: -3rem -12rem;
+      background-position: 0.5rem -8rem;
     }
 
     &.televisores {
@@ -157,7 +159,7 @@ div.products {
 
     &.zapatos {
       background-image: url('src/assets/images/products/zapatos.png');
-      background-position: 0rem -36rem;
+      background-position: 0rem -8rem;
     }
 
     &.mesas {
@@ -167,7 +169,49 @@ div.products {
 
     &.biblioteca {
       background-image: url('src/assets/images/products/library.jpg');
-      background-position: -3rem -23rem;
+      background-position: 0rem -5rem;
+    }
+
+    &.neveras {
+      background-image: url('src/assets/images/products/fridge.png');
+      background-position: center;
+      background-size: 30rem;
+    }
+
+    &.estufas {
+      background-image: url('src/assets/images/products/stove.jpg');
+      background-position: center;
+    }
+
+    &.ropa.infantil {
+      background-image: url('src/assets/images/products/child-cloths.jpg');
+      background-position: 0.5rem 0rem;
+    }
+
+    &.bolzos {
+      background-image: url('src/assets/images/products/handbag.jpg');
+      background-position: 0rem;
+    }
+
+    &.medias {
+      background-image: url('src/assets/images/products/socks.jpg');
+      background-position: 0rem;
+    }
+
+    &.camas {
+      background-image: url('src/assets/images/products/bed.jpg');
+      background-position: 0rem;
+    }
+
+    &.sofas {
+      background-image: url('src/assets/images/products/couch.jpg');
+      background-position: 1rem -1rem;
+      background-size: cover;
+    }
+
+    &.escritorios {
+      background-image: url('src/assets/images/products/desk.jpg');
+      background-position: 1rem -3rem;
     }
   }
 
@@ -188,10 +232,10 @@ div.products {
     }
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $breakpoint-tablet) {
 
     &__subcategory {
-      margin: 0 20%;
+      margin: 0 10%;
     }
 
     &__category {
@@ -203,6 +247,13 @@ div.products {
       & * {
         flex: 0 0 calc(40% - 0.8rem);
       }
+    }
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+
+    &__subcategory {
+      margin: 0 15%;
     }
   }
 
