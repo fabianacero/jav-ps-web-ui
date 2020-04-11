@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ServicesComponent implements OnInit {
 
   @Input() services: {};
+  @Input() category: number;
 
   constructor() { }
 

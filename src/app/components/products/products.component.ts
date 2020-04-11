@@ -8,6 +8,7 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 export class ProductsComponent implements OnInit, AfterViewInit {
 
   @Input() products: {};
+  @Input() category: number;
 
   constructor() {
   }

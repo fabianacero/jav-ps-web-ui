@@ -21,10 +21,48 @@
     flex-direction: column;
     width: 100%;
 
+    .shopping_cart {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      &__content {
+        color: transparent;
+        align-items: center;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        height: 0rem;
+        justify-content: center;
+        min-width: 30rem;
+        position: absolute;
+        top: 6rem;
+        transition: height ease-in-out 0.8s;
+        visibility: hidden;
+
+        & * {
+          background-color: red;
+          visibility: hidden;
+          height: 0;
+        }
+
+        &.active {
+          border: solid 1px #808080;
+          height: 40rem;
+          color: #ccc;
+          visibility: visible;
+          & * {
+            visibility: visible;
+            height: auto;
+          }
+        }
+      }
+    }
+
     > a {
       color: gray;
       font-size: 1.7rem;
-      line-height: 5rem;
+      line-height: 6rem;
       padding: 0 1rem;
       text-decoration: none;
 

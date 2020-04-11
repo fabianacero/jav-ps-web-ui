@@ -22,6 +22,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { CryptPipe } from './pipes/crypt.pipe';
 import { ProductsDirective } from './directives/products.directive';
 import {FormComponent} from './components/quotation/form/form.component';
+import { CartComponent } from './components/quotation/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {FormComponent} from './components/quotation/form/form.component';
     AccountComponent,
     CryptPipe,
     ProductsDirective,
-    FormComponent
+    FormComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

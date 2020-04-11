@@ -41,11 +41,18 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         event.preventDefault();
         const destination = menu.getAttribute('href');
         const element = document.querySelector(destination);
+        if (!element) {
+          if (menu.classList.contains('shopping_cart')) {
+            document.querySelector('.shopping_cart__content').classList.toggle('active');
+          }
+          return false;
+        }
         self.scrollIt(
           element,
           300,
           'easeOutQuad',
-          () => console.log(`Just finished scrolling to ${window.pageYOffset}px`)
+          () => {
+          }
         );
       });
     });
@@ -80,7 +87,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     reverseMenuItems.every((menuItem, key) => {
       const section = menuItem.getAttribute('href');
       const elementToStroll = document.querySelector(section);
-      if (elementToStroll.offsetTop > 0 && currentScrollPosition >= Number.parseInt(elementToStroll.offsetTop)) {
+      if (elementToStroll && elementToStroll.offsetTop > 0 && currentScrollPosition >= Number.parseInt(elementToStroll.offsetTop)) {
         document.querySelectorAll('.active').forEach((menu) => {
           menu.classList.remove('active');
         });

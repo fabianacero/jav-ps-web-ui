@@ -1,0 +1,9 @@
+.shopping_cart {
+  &__detail {
+    color: #818181;
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    margin-bottom: 2rem;
+  }
+}

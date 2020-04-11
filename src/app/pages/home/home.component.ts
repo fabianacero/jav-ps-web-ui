@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   public product: ProductServiceDetail;
   public service: ProductServiceDetail;
+  public categories = {product: 0, service: 0};
   public productsBySubCategory;
   public servicesBySubCategory;
 
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
       productsAndServices.forEach((productService) => {
         const category = productService.categoryDescription.toLocaleLowerCase();
         this[category] = productService.productsServices;
+        this.categories[category] = productService.categoryId;
       });
       this.productsBySubCategory = this.utilities.groupBy(this.product, 'subCategoryDescription');
       this.productsBySubCategory = Object.values(this.productsBySubCategory);

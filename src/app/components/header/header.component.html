@@ -9,6 +9,10 @@
       <a href="#productos" class="products">Productos</a>
       <a href="#servicios" class="services">Servicios</a>
       <a href="#preguntas" class="faqs">Preguntas Frecuentes</a>
+      <a *ngIf="!session" href="#shopping_cart" class="shopping_cart">
+        <span class="material-icons md-36">shopping_cart</span>
+        <app-cart class="shopping_cart__content"></app-cart>
+      </a>
       <div *ngIf="!session" class="header__login">
         <a [routerLink]="[routes.REGISTRATION]">Crea Tu Cuenta</a>
         <a [routerLink]="[routes.LOGIN]">Ingresa</a>
@@ -21,6 +25,7 @@
       </div>
     </nav>
   </div>
+
   <div *ngIf="session" class="header__account--options">
     <div class="account">
       <div class="account__menu">
@@ -38,4 +43,5 @@
       </div>
     </div>
   </div>
+
 </div>

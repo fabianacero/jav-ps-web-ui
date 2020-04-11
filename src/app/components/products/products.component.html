@@ -4,13 +4,11 @@
     <div class="products__subcategory" *ngFor="let product of products">
       <h3>{{product[0]['subCategoryDescription']}}</h3>
       <div class="products__group">
-        <div class="products__category" appProductService [attr.data-target]="group | crypt"
-             *ngFor="let group of product">
+        <div class="products__category" appProductService *ngFor="let group of product">
           <h3>{{group['productServiceDescription']}}</h3>
           <div class="products__inner">
             <div class="prodserv__image {{group['productServiceDescription'] | lowercase}}"></div>
-            <app-form [productServiceDescription]="group['productServiceDescription']"
-                      class="prodserv__form"></app-form>
+            <app-form [category]="category" [productServiceData]="group | crypt" class="prodserv__form"></app-form>
           </div>
           <span>{{group['subCategoryDescription']}}</span>
         </div>

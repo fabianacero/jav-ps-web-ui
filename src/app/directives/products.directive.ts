@@ -19,8 +19,8 @@ export class ProductsDirective {
       image.classList.toggle(toggledClass);
       form.classList.toggle(toggledClass);
     } else if (isAddButton) {
-      const formElement = this.el.nativeElement.querySelector('.prodserv__form > form');
-      console.log('form', formElement);
+      const back = this.el.nativeElement.querySelector('.prodserv__form--header > span.back');
+      back.click();
     }
   }
 

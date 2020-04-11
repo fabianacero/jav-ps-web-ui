@@ -1,21 +1,26 @@
 <div class="prodserv__form--header"><span class="back">x</span></div>
 <h2>Cotiza {{productServiceDescription}}</h2>
 <p>Ingresa tu cotización para poder procesarla y enviarla a nuestros proveedores</p>
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="forms">
   <div class="forms__form--inline">
     <label class="forms__label">Descripción</label>
     <label class="forms__label">Cantidad</label>
   </div>
+  <!--<input name="categoryId" type="hidden" value="{{category}}" ngModel>
+  <input name="productDescription" type="hidden" value="{{productServiceDescription}}" ngModel>
+  <input name="productId" type="hidden" value="{{productServiceId}}" ngModel>-->
   <div class="forms__form--inline">
     <div class="forms__form--input">
-      <input name="comment" type="text" ngModel required>
+      <input name="additionalInformation" id="additionalInformation" type="text" [(ngModel)]="quotationDetail.additionalInformation" required>
     </div>
 
     <div class="forms__form--input">
-      <input name="quantity" type="text" ngModel required>
+      <input name="quantity" id="quantity" type="text" [(ngModel)]="quotationDetail.quantity" required>
     </div>
   </div>
   <div class="forms__button">
     <button name="send" class="button" [disabled]="!f.valid">Agregar al Cotizador</button>
   </div>
+  <!--<pre>{{ quotationDetail | json }}</pre>
+  <pre>{{ f.value | json }}</pre>-->
 </form>
