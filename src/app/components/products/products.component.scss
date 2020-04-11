@@ -78,7 +78,7 @@ div.products {
     transform-style: preserve-3d;
     transition: transform 0.6s;
 
-    > div {
+    > * {
       position: absolute;
       width: 100%;
       height: 20rem;
@@ -86,23 +86,6 @@ div.products {
       backface-visibility: hidden;
       transition: transform 0.6s;
       transform-style: preserve-3d;
-    }
-  }
-
-  .forms {
-    &__form {
-      &--input {
-        margin: 0;
-      }
-    }
-
-    &__label {
-      color: #c16464;
-      margin: 0.2rem;
-    }
-
-    &__button {
-      margin-top: 1.5rem;
     }
   }
 
@@ -125,55 +108,19 @@ div.products {
   }
 
   @media (min-width: $breakpoint-desktop) {
-
     &__subcategory {
       margin: 0 15%;
     }
   }
-
 }
 
-div.prodserv {
+.prodserv {
   &__form {
     transform: rotateY(180deg);
 
     &.clicked {
       transform: rotateY(360deg);
     }
-
-    &--header {
-      display: flex;
-      justify-content: flex-end;
-
-      .back {
-        background: #e6e6e9;
-        border-radius: 50%;
-        box-shadow: -1px 1px #484848;
-        color: #747474;
-        font-size: 1.5rem;
-        height: 2rem;
-        line-height: 2rem;
-        max-height: 2rem;
-        max-width: 2rem;
-        text-align: center;
-      }
-    }
-
-    > h2 {
-      color: $title-h2-color;
-      font-size: 1.1rem;
-      margin: 0.2rem;
-    }
-
-    > p {
-      font-size: 1.2rem;
-      margin: 0.3rem;
-    }
-
-    > form {
-      margin: 0.3rem 0 0;
-    }
-
   }
 
   &__image {
@@ -188,7 +135,7 @@ div.prodserv {
 
     &.celulares {
       background-image: url('src/assets/images/products/phone.png');
-      background-position: 7.8rem -1rem;
+      background-position: 15rem -1rem;
       background-size: 30rem;
     }
 

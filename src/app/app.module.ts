@@ -21,6 +21,7 @@ import { MustMatchDirective } from './directives/must-match.directive';
 import { AccountComponent } from './pages/account/account.component';
 import { CryptPipe } from './pipes/crypt.pipe';
 import { ProductsDirective } from './directives/products.directive';
+import {FormComponent} from './components/quotation/form/form.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProductsDirective } from './directives/products.directive';
     MustMatchDirective,
     AccountComponent,
     CryptPipe,
-    ProductsDirective
+    ProductsDirective,
+    FormComponent
   ],
   imports: [
     BrowserModule,

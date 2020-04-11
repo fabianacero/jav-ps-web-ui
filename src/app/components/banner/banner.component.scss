@@ -33,7 +33,7 @@
     }
 
     &.first {
-      background-image: url("src/assets/images/banner_01.jpeg");
+      background-image: url("src/assets/images/banner_01.jpg");
       color: #03377b;
       & > figcaption {
         align-self: flex-end;
@@ -43,7 +43,7 @@
     }
 
     &.second {
-      background-image: url("src/assets/images/banner_02.jpeg");
+      background-image: url("src/assets/images/banner_02.jpg");
       color: #03377b;
       & > figcaption {
         align-self: flex-start;

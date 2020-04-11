@@ -9,29 +9,8 @@
           <h3>{{group['productServiceDescription']}}</h3>
           <div class="products__inner">
             <div class="prodserv__image {{group['productServiceDescription'] | lowercase}}"></div>
-            <div class="prodserv__form">
-              <div class="prodserv__form--header"><span class="back">x</span></div>
-              <h2>Cotiza {{group['productServiceDescription']}}</h2>
-              <p>Ingresa tu cotización para poder procesarla y enviarla a nuestros proveedores</p>
-              <form>
-                <div class="forms__form--inline">
-                  <label class="forms__label">Descripción</label>
-                  <label class="forms__label">Cantidad</label>
-                </div>
-                <div class="forms__form--inline">
-                  <div class="forms__form--input input90">
-                    <input name="comment" type="text" required>
-                  </div>
-
-                  <div class="forms__form--input">
-                    <input name="quantity" type="text" required>
-                  </div>
-                </div>
-                <div class="forms__button">
-                  <button name="send" class="button">Agregar al Cotizador</button>
-                </div>
-              </form>
-            </div>
+            <app-form [productServiceDescription]="group['productServiceDescription']"
+                      class="prodserv__form"></app-form>
           </div>
           <span>{{group['subCategoryDescription']}}</span>
         </div>
