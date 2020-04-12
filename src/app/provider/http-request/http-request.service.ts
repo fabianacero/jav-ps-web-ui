@@ -91,7 +91,7 @@ export class HttpRequestService {
     if (data === '') {
       return '';
     } else {
-      return Object.keys(data).map(key => `${key}=${encodeURIComponent(data[key])}`).join('&');
+      return Object.keys(data).map(key => `?${key}=${encodeURIComponent(data[key])}`).join('&');
     }
   }
 };

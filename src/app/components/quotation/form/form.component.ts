@@ -14,6 +14,7 @@ export class FormComponent implements OnInit {
 
   @Input() productServiceData;
   @Input() category;
+  private categoryIndex: number;
   public productServiceDescription: string;
   public productServiceId: number;
   public totalQuotation = [];
@@ -24,6 +25,7 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.categoryIndex = (this.category - 1);
     this.quotation = new QuotationRequest();
     this.quotationDetail = new QuotationRequestDetail();
     this.totalQuotation = this.utilities.getFromSessionObject('quotation', new Array());
@@ -38,7 +40,10 @@ export class FormComponent implements OnInit {
       this.productServiceId = productServiceData.productServiceId;
       this.quotationDetail.productDescription = this.productServiceDescription;
       this.quotationDetail.productId = productServiceData.productServiceId;
-      this.quotation.categoryId = this.category;
+      if (this.totalQuotation[this.categoryIndex]) {
+        this.quotation = Object.assign(new QuotationRequest(), this.totalQuotation[this.categoryIndex]);
+        this.quotation.assingObjectToDetail(this.quotation.details);
+      }
     }
   }
 
@@ -51,7 +56,7 @@ export class FormComponent implements OnInit {
         additionalInformation: this.quotationDetail.additionalInformation
       });
       this.quotation.addDetail(detail);
-      this.totalQuotation[(this.category - 1)] = this.quotation;
+      this.totalQuotation[this.categoryIndex] = this.quotation;
       this.utilities.saveOnSession('quotation', this.totalQuotation);
       form.reset();
       // To change!

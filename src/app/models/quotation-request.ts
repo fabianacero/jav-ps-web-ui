@@ -45,4 +45,12 @@ export class QuotationRequest {
   public addDetail(value: QuotationRequestDetail) {
     this._details.push(value);
   }
+
+  public assingObjectToDetail(value: any) {
+    const objectList = Object.values(value);
+    this._details = new Array<QuotationRequestDetail>();
+    objectList.forEach((element) => {
+      this.addDetail(Object.assign(new QuotationRequestDetail(), element));
+    });
+  }
 }
