@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Utilities} from '../../../utilities/utilities';
 import {QuotationRequest} from '../../../models/quotation-request';
 import {QuotationRequestDetail} from '../../../models/quotation-request-detail';
 import {Routes} from '../../../enums/routes.enum';
-import {ProductServiceDetail} from '../../../models/product-service-detail';
 
 @Component({
   selector: 'app-cart',
@@ -12,30 +11,33 @@ import {ProductServiceDetail} from '../../../models/product-service-detail';
 })
 export class CartComponent implements OnInit {
 
-  public hasQuotes = false;
+  @Input() quotes = new Array();
+  @Input() skipStorage = false;
+  public hasTemporalQuotes = false;
   public quotation: QuotationRequest;
   public quotationElements = new Array();
-  public quotes = new Array();
   public routes = Routes;
-  public totalQuotation = new Array();
+  public temporalQuotations = new Array();
 
   constructor(protected utilities: Utilities) {
   }
 
   ngOnInit(): void {
-    const currentElements = this.utilities.getFromSession('quotation');
-
-    this.utilities.observeSessionChanges('quotation')
-      .subscribe((elements) => {
-        this.getQuoteElements(elements);
-      });
-
-    if (currentElements) {
-      this.getQuoteElements(currentElements);
+    if (this.skipStorage) {
+      this.hasTemporalQuotes = this.quotes.length > 0;
+    } else {
+      const currentElements = this.utilities.getFromSession('quotation');
+      this.utilities.observeSessionChanges('quotation')
+        .subscribe((elements) => {
+          this.getQuoteElementsFromStorage(elements);
+        });
+      if (currentElements) {
+        this.getQuoteElementsFromStorage(currentElements);
+      }
     }
   }
 
-  protected getQuoteElements(elements) {
+  protected getQuoteElementsFromStorage(elements) {
     this.quotationElements = new Array();
     this.quotationElements = this.utilities.decodeJsonElement(elements, new Array());
     this.quotationElements.forEach((quote) => {
@@ -46,7 +48,7 @@ export class CartComponent implements OnInit {
           this.quotes.push(newDetail);
         }
       });
-      this.hasQuotes = this.quotes.length > 0;
+      this.hasTemporalQuotes = this.quotes.length > 0;
     });
   }
 
@@ -59,14 +61,14 @@ export class CartComponent implements OnInit {
     return typeof searchResult === 'undefined';
   }
 
-  protected getTotalQuotation() {
+  protected getTemporalQuotations() {
     const storedSession = this.utilities.getFromSessionObject('quotation', new Array());
-    this.totalQuotation = new Array();
+    this.temporalQuotations = new Array();
     storedSession.forEach((quotation) => {
       const quotationRequest: QuotationRequest = Object.assign(new QuotationRequest(), quotation);
       quotationRequest.assingObjectToDetail(quotationRequest.details);
-      this.totalQuotation.push(quotationRequest);
+      this.temporalQuotations.push(quotationRequest);
     });
-    this.hasQuotes = this.totalQuotation.length > 0;
+    this.hasTemporalQuotes = this.temporalQuotations.length > 0;
   }
 }

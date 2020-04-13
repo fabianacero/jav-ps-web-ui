@@ -19,6 +19,7 @@ export class QuotesComponent extends CartComponent implements OnInit {
   public showQuoteDetail = false;
   public session: Session;
   public categoryEnum = ProductCategories;
+  public requestedQuotations: QuotationRequest[] = [];
 
   constructor(protected utilities: Utilities, private quotationService: QuotationService, private router: Router) {
     super(utilities);
@@ -26,17 +27,31 @@ export class QuotesComponent extends CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkForSession();
-    this.getTotalQuotation();
+    this.getTemporalQuotations();
+    this.getQuotationRequest();
   }
 
-  onQuoteClick(categoryId) {
+  onQuoteClick(categoryOrQuote: number | QuotationRequest) {
     this.showQuoteDetail = true;
-    this.findQuote(categoryId);
+    this.skipStorage = false;
+    if (typeof categoryOrQuote === 'number') {
+      this.quotation = this.findQuote(categoryOrQuote);
+    } else {
+      this.quotation = categoryOrQuote;
+      this.skipStorage = true;
+    }
     return false;
   }
 
   private checkForSession() {
     this.session = this.utilities.getFromSessionObject('session', this.session);
+  }
+
+  getQuotationRequest() {
+    const payload = {personId: this.session.userId};
+    this.quotationService.getQuotationRequest(payload).subscribe((requestedQuotations) => {
+      this.requestedQuotations = requestedQuotations;
+    });
   }
 
   onSubmit(requestQuoteForm: NgForm) {
@@ -50,11 +65,13 @@ export class QuotesComponent extends CartComponent implements OnInit {
     return false;
   }
 
-  findQuote(categoryId) {
-    this.totalQuotation.forEach((quotationRequest: QuotationRequest) => {
+  findQuote(categoryId): QuotationRequest {
+    let quotationRequestResult: QuotationRequest = new QuotationRequest();
+    this.temporalQuotations.forEach((quotationRequest: QuotationRequest) => {
       if (quotationRequest.categoryId === categoryId) {
-        this.quotation = quotationRequest;
+        quotationRequestResult = quotationRequest;
       }
     });
+    return quotationRequestResult;
   }
 }

@@ -17,7 +17,7 @@ export class FormComponent implements OnInit {
   private categoryIndex: number;
   public productServiceDescription: string;
   public productServiceId: number;
-  public totalQuotation = [];
+  public temporalQuotations = [];
   public quotation: QuotationRequest;
   public quotationDetail: QuotationRequestDetail;
 
@@ -28,9 +28,9 @@ export class FormComponent implements OnInit {
     this.categoryIndex = (this.category - 1);
     this.quotation = new QuotationRequest();
     this.quotationDetail = new QuotationRequestDetail();
-    this.totalQuotation = this.utilities.getFromSessionObject('quotation', new Array());
-    if (this.utilities.isEmpty(this.totalQuotation)) {
-      this.totalQuotation = [];
+    this.temporalQuotations = this.utilities.getFromSessionObject('quotation', new Array());
+    if (this.utilities.isEmpty(this.temporalQuotations)) {
+      this.temporalQuotations = [];
     }
     this.quotationDetail = new QuotationRequestDetail();
     const productServiceDataDecoded = atob(this.productServiceData);
@@ -40,8 +40,8 @@ export class FormComponent implements OnInit {
       this.productServiceId = productServiceData.productServiceId;
       this.quotationDetail.productDescription = this.productServiceDescription;
       this.quotationDetail.productId = productServiceData.productServiceId;
-      if (this.totalQuotation[this.categoryIndex]) {
-        this.quotation = Object.assign(new QuotationRequest(), this.totalQuotation[this.categoryIndex]);
+      if (this.temporalQuotations[this.categoryIndex]) {
+        this.quotation = Object.assign(new QuotationRequest(), this.temporalQuotations[this.categoryIndex]);
         this.quotation.assingObjectToDetail(this.quotation.details);
       }
     }
@@ -57,8 +57,8 @@ export class FormComponent implements OnInit {
       });
       this.quotation.categoryId = this.category;
       this.quotation.addDetail(detail);
-      this.totalQuotation[this.categoryIndex] = this.quotation;
-      this.utilities.saveOnSession('quotation', this.totalQuotation);
+      this.temporalQuotations[this.categoryIndex] = this.quotation;
+      this.utilities.saveOnSession('quotation', this.temporalQuotations);
       form.reset();
       alert('Cotizacion adicionada correctamente');// To change!
     }

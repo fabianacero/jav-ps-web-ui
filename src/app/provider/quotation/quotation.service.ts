@@ -3,6 +3,8 @@ import {Observable} from 'rxjs';
 import {HttpRequestService} from '../http-request/http-request.service';
 import {QuotationRequest} from '../../models/quotation-request';
 import {HttpMethod} from '../../enums/http-method.enum';
+import {QuotationRequestFilter} from '../../models/quotation-request-filter';
+import {QuotationRequestFtype} from '../../enums/quotation-request-ftype.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +33,10 @@ export class QuotationService {
     };
 
     return this.httpRequest.request('/request-quotation', payload, HttpMethod.POST);
+  }
+
+  public getQuotationRequest(quotationFilter: QuotationRequestFilter,
+                             filterType: string = QuotationRequestFtype.PERSON): Observable<Array<QuotationRequest>> {
+    return this.httpRequest.request(`/request-quotation/${filterType}`, quotationFilter, HttpMethod.POST);
   }
 }
