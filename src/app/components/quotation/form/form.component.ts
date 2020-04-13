@@ -55,12 +55,12 @@ export class FormComponent implements OnInit {
         productDescription: this.quotationDetail.productDescription,
         additionalInformation: this.quotationDetail.additionalInformation
       });
+      this.quotation.categoryId = this.category;
       this.quotation.addDetail(detail);
       this.totalQuotation[this.categoryIndex] = this.quotation;
       this.utilities.saveOnSession('quotation', this.totalQuotation);
       form.reset();
-      // To change!
-      alert('Cotizacion adicionada correctamente');
+      alert('Cotizacion adicionada correctamente');// To change!
     }
     return false;
   }

@@ -23,6 +23,9 @@ import { CryptPipe } from './pipes/crypt.pipe';
 import { ProductsDirective } from './directives/products.directive';
 import {FormComponent} from './components/quotation/form/form.component';
 import { CartComponent } from './components/quotation/cart/cart.component';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import { QuotesComponent } from './pages/quotes/quotes.component';
+import { BaseComponent } from './components/base/base.component';
 
 @NgModule({
   declarations: [
@@ -43,14 +46,17 @@ import { CartComponent } from './components/quotation/cart/cart.component';
     CryptPipe,
     ProductsDirective,
     FormComponent,
-    CartComponent
+    CartComponent,
+    QuotesComponent,
+    BaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxWebstorageModule.forRoot()
   ],
   providers: [HttpRequestService],
   bootstrap: [AppComponent]

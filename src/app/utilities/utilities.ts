@@ -1,10 +1,12 @@
 import {Injectable} from '@angular/core';
+import {SessionStorageService} from 'ngx-webstorage';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Utilities {
-  constructor() {
+  constructor(private storage: SessionStorageService) {
   }
 
   /**
@@ -63,19 +65,15 @@ export class Utilities {
       elementToStorage = JSON.stringify(element);
     }
     elementToStorage = btoa(elementToStorage);
-    sessionStorage.setItem(name, elementToStorage);
+    this.storage.store(name, elementToStorage);
   }
 
   public getFromSession(name, decode?: boolean) {
-    let elementOnStorage = atob(sessionStorage.getItem(name));
-    if (typeof decode !== 'undefined' && decode) {
-      elementOnStorage = decodeURIComponent(escape(elementOnStorage));
-    }
-    return JSON.parse(elementOnStorage) ? JSON.parse(elementOnStorage) : elementOnStorage;
+    return this.storage.retrieve(name);
   }
 
   public getFromSessionObject(name, objectToMap, decode?: boolean) {
-    let elementOnStorage = sessionStorage.getItem(name);
+    let elementOnStorage = this.storage.retrieve(name);
     if (!elementOnStorage) {
       return objectToMap;
     }
@@ -84,6 +82,14 @@ export class Utilities {
       elementOnStorage = decodeURIComponent(escape(elementOnStorage));
     }
     return this.decodeJsonElement(elementOnStorage, objectToMap);
+  }
+
+  public observeSessionChanges(name): Observable<any> {
+    return this.storage.observe(name);
+  }
+
+  public removeOnSession(name) {
+    return this.storage.clear(name);
   }
 
   public groupBy(xs, key) {

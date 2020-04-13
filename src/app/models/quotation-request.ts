@@ -4,6 +4,9 @@ export class QuotationRequest {
   private _categoryId: number;
   private _personId: number;
   private _additionalInfo: string;
+  private _requestQuotationId: number;
+  private _categoryDescription: string;
+  private _eRequestStatus: string;
   private _details: Array<QuotationRequestDetail>;
 
   constructor() {
@@ -36,6 +39,30 @@ export class QuotationRequest {
 
   get details(): QuotationRequestDetail[] {
     return this._details;
+  }
+
+  get requestQuotationId(): number {
+    return this._requestQuotationId;
+  }
+
+  set requestQuotationId(value: number) {
+    this._requestQuotationId = value;
+  }
+
+  get categoryDescription(): string {
+    return this._categoryDescription;
+  }
+
+  set categoryDescription(value: string) {
+    this._categoryDescription = value;
+  }
+
+  get eRequestStatus(): string {
+    return this._eRequestStatus;
+  }
+
+  set eRequestStatus(value: string) {
+    this._eRequestStatus = value;
   }
 
   set details(value: QuotationRequestDetail[]) {

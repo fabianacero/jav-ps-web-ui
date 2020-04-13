@@ -6,12 +6,10 @@
     <label class="forms__label">Descripción</label>
     <label class="forms__label">Cantidad</label>
   </div>
-  <!--<input name="categoryId" type="hidden" value="{{category}}" ngModel>
-  <input name="productDescription" type="hidden" value="{{productServiceDescription}}" ngModel>
-  <input name="productId" type="hidden" value="{{productServiceId}}" ngModel>-->
   <div class="forms__form--inline">
     <div class="forms__form--input">
-      <input name="additionalInformation" id="additionalInformation" type="text" [(ngModel)]="quotationDetail.additionalInformation" required>
+      <input name="additionalInformation" id="additionalInformation" type="text"
+             [(ngModel)]="quotationDetail.additionalInformation" required>
     </div>
 
     <div class="forms__form--input">
@@ -21,6 +19,4 @@
   <div class="forms__button">
     <button name="send" class="button" [disabled]="!f.valid">Agregar al Cotizador</button>
   </div>
-  <!--<pre>{{ quotationDetail | json }}</pre>
-  <pre>{{ f.value | json }}</pre>-->
 </form>

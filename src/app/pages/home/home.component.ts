@@ -1,37 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {ProductsService} from '../../provider/products/products.service';
-import {ProductServiceResponse} from '../../models/product-service-response';
-import {ProductServiceDetail} from '../../models/product-service-detail';
-import {Utilities} from '../../utilities/utilities';
+import {BaseComponent} from '../../components/base/base.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-
-  public product: ProductServiceDetail;
-  public service: ProductServiceDetail;
-  public categories = {product: 0, service: 0};
-  public productsBySubCategory;
-  public servicesBySubCategory;
-
-  constructor(private productsService: ProductsService, private utilities: Utilities) {
-  }
+export class HomeComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
-    this.productsService.getAllProductsAndServices().subscribe((productsAndServices: [ProductServiceResponse]) => {
-      productsAndServices.forEach((productService) => {
-        const category = productService.categoryDescription.toLocaleLowerCase();
-        this[category] = productService.productsServices;
-        this.categories[category] = productService.categoryId;
-      });
-      this.productsBySubCategory = this.utilities.groupBy(this.product, 'subCategoryDescription');
-      this.productsBySubCategory = Object.values(this.productsBySubCategory);
-      this.servicesBySubCategory = this.utilities.groupBy(this.service, 'subCategoryDescription');
-      this.servicesBySubCategory = Object.values(this.servicesBySubCategory);
-    });
+    this.getAllProductsAndServices();
   }
-
 }

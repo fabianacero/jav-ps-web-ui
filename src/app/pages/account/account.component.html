@@ -1,5 +1,5 @@
 <app-header></app-header>
 <app-banner></app-banner>
-<app-products id="productos"></app-products>
-<app-services id="servicios"></app-services>
+<app-products id="productos" [category]="categories.product" [products]="productsBySubCategory"></app-products>
+<app-services id="servicios" [category]="categories.service" [services]="servicesBySubCategory"></app-services>
 <app-faqs id="preguntas"></app-faqs>

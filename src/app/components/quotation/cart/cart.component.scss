@@ -1,9 +1,43 @@
+@import 'src/assets/scss/_variables.scss';
+
+:host-context {
+  overflow: scroll;
+  padding-top: 5.5rem;
+}
+
 .shopping_cart {
+  &__quote {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1.5rem;
+    width: 100%;
+    border-bottom: solid 1px $light-gray-color;
+    &:hover {
+      background-color: $whitesmoke-color;
+    }
+  }
+
   &__detail {
+
     color: #818181;
     display: flex;
     flex-direction: column;
     line-height: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem;
+
+    > div {
+      > span:first-of-type {
+        font-weight: 600;
+      }
+
+      > span:last-of-type {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &__footer {
+
   }
 }

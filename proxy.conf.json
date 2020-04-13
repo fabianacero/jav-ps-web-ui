@@ -16,5 +16,11 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/request-quotation/*": {
+    "target": "http://localhost:7073",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
 }

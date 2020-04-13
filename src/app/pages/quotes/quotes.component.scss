@@ -1,0 +1,79 @@
+:host-context {
+  font-family: "Baloo 2";
+}
+
+.quote {
+  &__container {
+    padding-top: 9rem; // Temporal fix
+  }
+
+  &__list {
+    max-height: 10rem;
+  }
+
+  &__resume {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+
+    > * {
+      height: 8rem;
+      min-height: 2rem;
+      padding: 0.1rem 0.5rem;
+    }
+  }
+
+  &__description {
+    background: #ededed;
+  }
+
+  &__status {
+    background: #9E9E9E;
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+    text-align: center;
+
+    &.before-send {
+      background: orange;
+    }
+  }
+
+  &__detail {
+    border-radius: 1rem;
+    border: solid 1px gray;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    min-height: 25rem
+  }
+
+  &__elements {
+    border-radius: 1rem;
+    border: solid 1px gray;
+    margin: 1rem 3rem;
+    padding: 0.5rem 2rem;
+
+    &::ng-deep {
+      .shopping_cart__quote {
+        padding: 0;
+      }
+    }
+  }
+
+  &__request {
+    min-width: 20rem;
+    display: flex;
+    justify-content: center;
+
+    & textarea {
+      width: 25rem;
+      height: 8rem;
+    }
+  }
+
+  &__paragraph {
+    max-width: 25rem;
+  }
+}

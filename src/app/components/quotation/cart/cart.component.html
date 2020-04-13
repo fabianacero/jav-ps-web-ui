@@ -1,17 +1,24 @@
-<p *ngIf="!quotationElements">No content</p>
-<div class="shopping_cart__quote" *ngFor="let detail of quotes">
-  <div class="shopping_cart__detail">
-    <div>
-      <span>Referencia:</span>
-      <span>{{detail.additionalInformation}}</span>
-    </div>
-    <div>
-      <span>Cantidad:</span>
-      <span>{{detail.quantity}}</span>
-    </div>
-    <div>
-      <span>Categoría:</span>
-      <span>{{detail.productDescription}}</span>
+<p *ngIf="!hasQuotes">No content</p>
+<div *ngIf="hasQuotes">
+  <div class="shopping_cart__quote" *ngFor="let detail of quotes">
+    <span class="material-icons md-48">laptop_mac</span>
+    <div class="shopping_cart__detail">
+      <div>
+        <span>Referencia:</span>
+        <span>{{detail.additionalInformation}}</span>
+      </div>
+      <div>
+        <span>Cantidad:</span>
+        <span>{{detail.quantity}}</span>
+      </div>
+      <div>
+        <span>Categoría:</span>
+        <span>{{detail.productDescription}}</span>
+      </div>
     </div>
   </div>
+  <div class="shopping_cart__footer">
+    <a [routerLink]="[routes.QUOTES]">Ver todo</a>
+  </div>
 </div>
+

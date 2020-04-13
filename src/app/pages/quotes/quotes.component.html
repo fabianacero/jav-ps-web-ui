@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="quote__container">
+  <div *ngIf="!showQuoteDetail && hasQuotes" class="quote__list">
+
+    <div *ngFor="let quotation of totalQuotation" class="quote__resume">
+      <div class="quote__description">
+        <h3>Cotizacion pendiente</h3>
+        <p>Hemos detectado la siguiente cotización que ha quedado en estado pendiente de envío</p>
+        <span *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
+        <span *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
+      </div>
+      <div class="quote__status before-send">
+        <h3>Por enviar</h3>
+        <p><a href="#" (click)="onQuoteClick(quotation.categoryId)">Ver detalle</a></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="showQuoteDetail" class="quote__detail">
+    <div class="quote__elements">
+      <app-cart></app-cart>
+    </div>
+    <div class="quote__request">
+      <form #requedtQuoteForm="ngForm" (ngSubmit)="onSubmit(requedtQuoteForm)" class="forms">
+        <div class="forms__form--inline">
+          <h2>Solicitar Cotización</h2>
+          <p class="quote__paragraph">Nuestros proveedores tomarán su cotización y le enviarán a oferta al
+            correo {{session.userCode}}@mail.com y
+            al número telefónico {{session.firstName}} por SMS. Si ésta no es la información correcta, por favor
+            actualice su perfil</p>
+        </div>
+        <div class="forms__form--inline">
+          <div class="forms__form--input">
+            <textarea name="additionalInfo" id="additionalInfo" type="text" [(ngModel)]="quotation.additionalInfo"
+                      required></textarea>
+          </div>
+        </div>
+        <div class="forms__button">
+          <button name="send" class="button" [disabled]="!requedtQuoteForm.valid">Agregar al Cotizador</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

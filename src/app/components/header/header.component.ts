@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   public logOut() {
-    sessionStorage.removeItem('session');
+    this.utilities.removeOnSession('session');
     this.router.navigate([Routes.HOME]);
   }
 
@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         const destination = menu.getAttribute('href');
         const element = document.querySelector(destination);
         if (!element) {
-          if (menu.classList.contains('shopping_cart')) {
+          if (menu && menu.classList.contains('shopping_cart')) {
             document.querySelector('.shopping_cart__content').classList.toggle('active');
           }
           return false;

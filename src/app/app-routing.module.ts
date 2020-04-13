@@ -6,6 +6,7 @@ import {RegistrationComponent} from './pages/registration/registration.component
 import {LoginComponent} from './pages/login/login.component';
 import {AccountComponent} from './pages/account/account.component';
 import {LoginGuard} from './guards/login.guard';
+import {QuotesComponent} from './pages/quotes/quotes.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'crea-tu-cuenta', component: RegistrationComponent},
   {path: 'ingresa', component: LoginComponent},
   {path: 'mi-cuenta', component: AccountComponent, canActivate: [LoginGuard]},
+  {path: 'mis-cotizaciones', component: QuotesComponent, canActivate: [LoginGuard]},
   {path: '**', component: PageNotFoundComponent}
 ];
 
