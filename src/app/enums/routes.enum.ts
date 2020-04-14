@@ -3,5 +3,6 @@ export enum Routes {
   REGISTRATION = '/crea-tu-cuenta',
   HOME = '/inicio',
   APP = '/mi-cuenta',
-  QUOTES = '/mis-cotizaciones'
+  QUOTES = '/mis-cotizaciones',
+  DASHBOARD = '/ver-dashboard'
 }

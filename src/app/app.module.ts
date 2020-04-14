@@ -27,6 +27,7 @@ import {NgxWebstorageModule} from 'ngx-webstorage';
 import { QuotesComponent } from './pages/quotes/quotes.component';
 import { BaseComponent } from './components/base/base.component';
 import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { EstadisticaComponent } from './pages/estadistica/estadistica.component'
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ChartsModule,
     NgxWebstorageModule.forRoot()
   ],
   providers: [HttpRequestService],
