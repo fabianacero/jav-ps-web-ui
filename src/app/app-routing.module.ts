@@ -8,6 +8,7 @@ import {AccountComponent} from './pages/account/account.component';
 import {LoginGuard} from './guards/login.guard';
 import {QuotesComponent} from './pages/quotes/quotes.component';
 import {EstadisticaComponent} from './pages/estadistica/estadistica.component';
+import {SubcategoryComponent} from './pages/subcategory/subcategory.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/inicio', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'mi-cuenta', component: AccountComponent, canActivate: [LoginGuard]},
   {path: 'mis-cotizaciones', component: QuotesComponent, canActivate: [LoginGuard]},
   {path: 'ver-dashboard', component: EstadisticaComponent},
+  {path: 'ver-subcategoria', component: SubcategoryComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 

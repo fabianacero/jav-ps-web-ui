@@ -28,6 +28,7 @@ import { QuotesComponent } from './pages/quotes/quotes.component';
 import { BaseComponent } from './components/base/base.component';
 import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
 import { ChartsModule } from 'ng2-charts';
+import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { ChartsModule } from 'ng2-charts';
     CartComponent,
     QuotesComponent,
     BaseComponent,
-    EstadisticaComponent
+    EstadisticaComponent,
+    SubcategoryComponent
   ],
   imports: [
     BrowserModule,

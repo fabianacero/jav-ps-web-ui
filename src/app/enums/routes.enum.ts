@@ -4,5 +4,6 @@ export enum Routes {
   HOME = '/inicio',
   APP = '/mi-cuenta',
   QUOTES = '/mis-cotizaciones',
-  DASHBOARD = '/ver-dashboard'
+  DASHBOARD = '/ver-dashboard',
+  SUBCATEGORIA = '/ver-subcategoria'
 }
