@@ -24,6 +24,11 @@ git clone git@github.com:fabianacero/jav-ps-web-ui.git
 cd jav-ps-web-ui
 npm i
 ```
+### Instalar librerías para gráficas
+```bash
+npm install ng2-charts
+npm install chart.js
+```
 
 ### Servir el proyecto
 ```bash
