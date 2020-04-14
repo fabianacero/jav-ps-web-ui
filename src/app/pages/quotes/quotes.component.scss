@@ -25,7 +25,7 @@
     display: flex;
     justify-content: center;
     margin: 1rem;
-    width: 50rem;
+    width: 35rem;
 
     > * {
       height: 100%;
@@ -108,5 +108,11 @@
 
   &__paragraph {
     max-width: 25rem;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    &__resume {
+      width: 50rem;
+    }
   }
 }
