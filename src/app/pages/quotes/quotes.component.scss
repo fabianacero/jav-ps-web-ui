@@ -1,3 +1,5 @@
+@import 'src/assets/scss/_variables.scss';
+
 :host-context {
   font-family: "Baloo 2";
 }
@@ -8,36 +10,67 @@
   }
 
   &__list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     max-height: 10rem;
   }
 
   &__resume {
+    -moz-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    -webkit-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    align-items: center;
+    border-radius: 1rem;
+    box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
     display: flex;
     justify-content: center;
-    align-items: center;
     margin: 1rem;
+    width: 50rem;
 
     > * {
-      height: 8rem;
-      min-height: 2rem;
-      padding: 0.1rem 0.5rem;
+      height: 100%;
     }
-  }
-
-  &__description {
-    background: #ededed;
-  }
-
-  &__status {
-    background: #9E9E9E;
-    display: flex;
-    flex-direction: column;
-    min-width: 10rem;
-    text-align: center;
 
     &.before-send {
       background: orange;
     }
+
+    &.registered {
+      background: #59a2ff;
+    }
+  }
+
+  &__description {
+    background: #f8f8f8;
+    border-radius: 1rem 0 0 1rem;
+    font-size: 1.2rem;
+    width: -moz-available;
+    width: -webkit-fill-available;
+
+    > p {
+      margin: 1rem;
+    }
+
+    > h3 {
+      margin: 1rem;
+    }
+
+    > span {
+      background: $product-main-color;
+      border-radius: 0rem 0rem 0rem 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      padding: 0 1rem;
+      color: white;
+    }
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+    text-align: center;
+    border-radius: 0 1rem 1rem 0;
   }
 
   &__detail {

@@ -5,7 +5,7 @@ import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit, AfterViewInit {
+  export class ProductsComponent implements OnInit, AfterViewInit {
 
   @Input() products: {};
   @Input() category: number;
