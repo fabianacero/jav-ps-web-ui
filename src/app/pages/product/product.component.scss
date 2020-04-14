@@ -1,0 +1,97 @@
+@import 'src/assets/scss/_forms.scss';
+
+* {
+  font-size: 62.5%;
+  font-family: "Baloo 2";
+}
+
+.button {
+  background-color: #232f3e;
+  border-radius: 0.6rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.5rem;
+  height: 4rem;
+  margin: 4px 2px;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  width: 20rem;
+}
+
+button:disabled {
+  background-color: darkgrey;
+  cursor: not-allowed;
+}
+
+.registration {
+  &__background {
+    background: url("src/assets/images/logo.png") #232f3e no-repeat 2rem top;
+    background-size: 6rem;
+    display: flex;
+    height: 20rem;
+    justify-content: center;
+    > p {
+      color: #6ea6d1;
+      font-size: 2.5rem;
+      margin-left: 7.8rem;
+      margin-top: 2.8rem;
+      width: 100%;
+      > span {
+        color: #addafc;
+      }
+    }
+  }
+
+  &__title {
+    background: transparent;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    height: 5rem;
+    line-height: 2rem;
+    margin: 3rem 0.5rem 0.5rem;
+    text-align: center;
+  }
+
+  &__form {
+    background: transparent;
+    display: flex;
+    font-size: 1.6rem;
+    justify-content: center;
+    margin-top: 6rem;
+    position: absolute;
+    top: 5rem;
+
+    & > form {
+      background-color: #3789cd;
+      border-radius: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 340px;
+
+      & > input {
+        align-self: center;
+        font-size: 1.5rem;
+        height: 40px;
+        margin-bottom: 2rem;
+        padding: 0 0 0 1rem;
+        width: 250px;
+      }
+
+    }
+  }
+
+  &__button {
+    align-self: center;
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 250px;
+  }
+}

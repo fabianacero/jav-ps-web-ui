@@ -29,6 +29,7 @@ import { BaseComponent } from './components/base/base.component';
 import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
 import { ChartsModule } from 'ng2-charts';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { SubcategoryComponent } from './pages/subcategory/subcategory.component'
     QuotesComponent,
     BaseComponent,
     EstadisticaComponent,
-    SubcategoryComponent
+    SubcategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
