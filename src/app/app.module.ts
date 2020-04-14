@@ -26,6 +26,11 @@ import { CartComponent } from './components/quotation/cart/cart.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { QuotesComponent } from './pages/quotes/quotes.component';
 import { BaseComponent } from './components/base/base.component';
+import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
+import { ChartsModule } from 'ng2-charts';
+import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
+import { ProductComponent } from './pages/product/product.component';
+import { ProvideradmComponent } from './pages/provideradm/provideradm.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,11 @@ import { BaseComponent } from './components/base/base.component';
     FormComponent,
     CartComponent,
     QuotesComponent,
-    BaseComponent
+    BaseComponent,
+    EstadisticaComponent,
+    SubcategoryComponent,
+    ProductComponent,
+    ProvideradmComponent
   ],
   imports: [
     BrowserModule,
@@ -56,6 +65,7 @@ import { BaseComponent } from './components/base/base.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ChartsModule,
     NgxWebstorageModule.forRoot()
   ],
   providers: [HttpRequestService],

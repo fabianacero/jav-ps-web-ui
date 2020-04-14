@@ -1,0 +1,69 @@
+<div class="registration__background">
+    <p [routerLink]="[routes.HOME]">otizaciones<span>.com</span></p>
+    <div class="registration__form">
+      <form #registerForm="ngForm" class="form"
+ [appMustMatch]="['password', 'confirmPassword']" novalidate>
+
+        <p class="registration__title">Dashboard de Indicadores<span>¡comienza a cotizar!</span></p>
+  
+        <div class=" forms__form">
+            <div style="display: block">
+            <label for="productDescription" class="forms__label">Cantidad de Productos Vs Servicios que pueden ser Cotizados</label>
+            <canvas baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    [title]="doughnutTitle"   
+            > 
+            </canvas>
+            </div>
+            <br><br><br><br><br><br><br>
+            <div style="display: block">
+            <label for="productDescription" class="forms__label">Cantidad de Productos y/o Servicios, Solicitados Vs Cotizados </label>
+              <div style="display: block">
+                  <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType">
+                  </canvas>
+                </div>
+              </div>
+              <br><br><br><br><br><br><br><br>
+              <div style="display: block">
+                <label for="productDescription" class="forms__label">Estados de Solicitudes de Cotización: Producto y Servicio</label>
+                  <div style="display: block">
+                    <canvas baseChart
+                    [datasets]="radarChartData"
+                    [labels]="radarChartLabels"
+                    [chartType]="radarChartType"></canvas>
+                </div>
+                </div>
+                <br><br><br><br><br><br><br><br>
+                <div style="display: block">
+                  <label for="productDescription" class="forms__label">Cantidad de Productos Cotizados</label>
+                  
+                
+                  <div style="display: block">
+                      <canvas baseChart
+                              [data]="pieChartData"
+                              [labels]="pieChartLabels"
+                              [chartType]="pieChartType"></canvas>
+                    </div>
+                    </div>
+        </div>
+        <div class="registration__button">
+
+          <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
+            Regresar
+          </button>
+          
+        </div>
+      </form>
+    </div>
+    <pre>{{ model | json }}</pre>
+    <pre>{{ registerForm.value | json }}</pre>
+  </div>
+  
+

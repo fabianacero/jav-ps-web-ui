@@ -1,0 +1,52 @@
+<div class="registration__background">
+    <p [routerLink]="[routes.HOME]">otizaciones<span>.com</span></p>
+    <div class="registration__form">
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
+            [appMustMatch]="['password', 'confirmPassword']" novalidate>
+        <p class="registration__title">Registrar Producto o Servicio<span>¡comienza a cotizar!</span></p>
+  
+        
+  
+        <div class=" forms__form--inline">
+          <div class="forms__form--select">
+            <label for="categoryType" class="forms__label">Categoria</label>
+            <select name="categoryType" id="categoryType" [(ngModel)]="model.categoryType" required>
+              <option value="1">PRODUCTOS</option>
+              <option value="2">SERVICIOS</option>
+            </select>
+          </div>
+
+          <div class="forms__form--select">
+            <label for="subCategoryType" class="forms__label">Sub Categoria</label>
+            <select name="subCategoryType" id="subCategoryType" [(ngModel)]="model.subCategoryType" required>
+              <option *ngFor='let subCategoria of subCategorias' [value]="subCategoria.subCategoryId">
+                {{subCategoria.subCategoryDescription}}
+              </option>
+            </select>
+          </div>
+  
+          
+        </div>
+
+        <div class="forms__form--input input90">
+            <label for="productDescription" class="forms__label">Producto</label>
+            <input name="productDescription" id="productDescription" type="text" [(ngModel)]="model.productDescription"
+                   required>
+          </div>
+
+        <div class="registration__button">
+          <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
+            Ingresar
+          </button>
+
+          <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
+            Regresar
+          </button>
+          
+        </div>
+      </form>
+    </div>
+    <pre>{{ model | json }}</pre>
+    <pre>{{ registerForm.value | json }}</pre>
+  </div>
+  
