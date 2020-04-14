@@ -26,6 +26,7 @@ import { CartComponent } from './components/quotation/cart/cart.component';
 import {NgxWebstorageModule} from 'ngx-webstorage';
 import { QuotesComponent } from './pages/quotes/quotes.component';
 import { BaseComponent } from './components/base/base.component';
+import { EstadisticaComponent } from './pages/estadistica/estadistica.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { BaseComponent } from './components/base/base.component';
     FormComponent,
     CartComponent,
     QuotesComponent,
-    BaseComponent
+    BaseComponent,
+    EstadisticaComponent
   ],
   imports: [
     BrowserModule,
