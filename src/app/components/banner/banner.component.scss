@@ -6,10 +6,12 @@
 
   & > figure {
     margin: 0;
+
     & > div {
       display: none;
       margin: 0px auto;
     }
+
     &.visible > div {
       display: flex;
       flex-direction: column;
@@ -34,31 +36,45 @@
 
     &.first {
       background-image: url("src/assets/images/banner_01.jpg");
-      color: #03377b;
+      color: #8a0b2b;
+      text-shadow: -1px 3px #a37732;
+
+
       & > figcaption {
-        align-self: flex-end;
+        align-self: flex-start;
         margin: 0 10rem 0 0;
         display: block;
+        font-size: 2.5rem;
+        text-align: center;
       }
     }
 
     &.second {
       background-image: url("src/assets/images/banner_02.jpg");
       color: #03377b;
+
       & > figcaption {
         align-self: flex-start;
-        margin: 0 0 0 10rem;
+        color: #aedafc;
         display: block;
+        font-size: 2rem;
+        margin: 0 0 0 1rem;
+        text-shadow: -1px 2px grey;
       }
     }
 
     &.third {
       background-image: url("src/assets/images/banner_03.jpeg");
       color: #e6e6e9;
+
       & > figcaption {
         align-self: flex-start;
-        margin: 0 0 0 10rem;
+        color: #aedafc;
         display: block;
+        font-size: 2rem;
+        margin-left: 1rem;
+        max-width: 18rem;
+        text-align: left;
       }
     }
   }
@@ -68,6 +84,29 @@
   .banner {
     &__element {
       min-height: 50rem;
+
+      &.first {
+        & > figcaption {
+          font-size: 3.5rem;
+          text-align: right;
+        }
+      }
+
+      &.second {
+        & > figcaption {
+          font-size: 3.5rem;
+          margin: 0 0 0 10rem;
+          text-align: left;
+        }
+      }
+
+      &.third {
+        & > figcaption {
+          font-size: 3.5rem;
+          margin: 0 0 0 10rem;
+          max-width: 33rem;
+        }
+      }
     }
   }
 }
