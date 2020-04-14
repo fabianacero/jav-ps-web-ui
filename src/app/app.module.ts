@@ -30,6 +30,7 @@ import { EstadisticaComponent } from './pages/estadistica/estadistica.component'
 import { ChartsModule } from 'ng2-charts';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
 import { ProductComponent } from './pages/product/product.component';
+import { ProvideradmComponent } from './pages/provideradm/provideradm.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ProductComponent } from './pages/product/product.component';
     BaseComponent,
     EstadisticaComponent,
     SubcategoryComponent,
-    ProductComponent
+    ProductComponent,
+    ProvideradmComponent
   ],
   imports: [
     BrowserModule,

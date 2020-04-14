@@ -6,5 +6,6 @@ export enum Routes {
   QUOTES = '/mis-cotizaciones',
   DASHBOARD = '/ver-dashboard',
   SUBCATEGORIA = '/ver-subcategoria',
-  PRODUCTO = '/ver-producto'
+  PRODUCTO = '/ver-producto',
+  PROVEEDORES = '/ver-proveedor'
 }
