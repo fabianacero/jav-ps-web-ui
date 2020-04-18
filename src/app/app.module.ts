@@ -31,6 +31,10 @@ import { ChartsModule } from 'ng2-charts';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ProvideradmComponent } from './pages/provideradm/provideradm.component';
+import {AccountMenuComponent} from './components/header/account-menu/account-menu.component';
+import { ProviderQuotesComponent } from './pages/provider-quotes/provider-quotes.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuoteStatusPipe } from './pipes/quote-status.pipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,10 @@ import { ProvideradmComponent } from './pages/provideradm/provideradm.component'
     EstadisticaComponent,
     SubcategoryComponent,
     ProductComponent,
-    ProvideradmComponent
+    ProvideradmComponent,
+    AccountMenuComponent,
+    ProviderQuotesComponent,
+    QuoteStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,8 @@ import { ProvideradmComponent } from './pages/provideradm/provideradm.component'
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    NgbModule
   ],
   providers: [HttpRequestService],
   bootstrap: [AppComponent]

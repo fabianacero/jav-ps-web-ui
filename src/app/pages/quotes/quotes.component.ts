@@ -20,6 +20,7 @@ export class QuotesComponent extends CartComponent implements OnInit {
   public session: Session;
   public categoryEnum = ProductCategories;
   public requestedQuotations: QuotationRequest[] = [];
+  public staticAlertClosed = true;
 
   constructor(protected utilities: Utilities, private quotationService: QuotationService, private router: Router) {
     super(utilities);
@@ -48,7 +49,7 @@ export class QuotesComponent extends CartComponent implements OnInit {
   }
 
   getQuotationRequest() {
-    const payload = {personId: this.session.userId};
+    const payload = {personId: this.session.person.personId};
     this.quotationService.getQuotationRequest(payload).subscribe((requestedQuotations) => {
       this.requestedQuotations = requestedQuotations;
     });
@@ -56,11 +57,14 @@ export class QuotesComponent extends CartComponent implements OnInit {
 
   onSubmit(requestQuoteForm: NgForm) {
     this.quotation.additionalInfo = requestQuoteForm.value.additionalInfo;
-    this.quotation.personId = this.session.userId;
+    this.quotation.personId = this.session.person.personId;
     this.quotationService.createQuotationRequest(this.quotation).subscribe((requestResult) => {
       this.utilities.removeOnSession('quotation');
-      alert('Cotización registrada exitosamente'); // To Remove!
-      this.router.navigate([Routes.QUOTES]);
+      this.staticAlertClosed = false;
+      setTimeout(() => {
+        this.staticAlertClosed = true;
+        window.location.href = Routes.QUOTES;
+      }, 2000);
     });
     return false;
   }

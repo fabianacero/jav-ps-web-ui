@@ -24,29 +24,33 @@
               </option>
             </select>
           </div>
-  
-          
+
         </div>
 
-        <div class="forms__form--input input90">
-            <label for="productDescription" class="forms__label">Producto</label>
-            <input name="productDescription" id="productDescription" type="text" [(ngModel)]="model.productDescription"
-                   required>
-          </div>
-
-        <div class="registration__button">
-          <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
-            Ingresar
-          </button>
-
-          <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
-            Regresar
-          </button>
-          
+        <div class="forms__form--select">
+          <label for="subCategoryType" class="forms__label">Sub Categoria</label>
+          <select name="subCategoryType" id="subCategoryType" [(ngModel)]="model.subCategoryType" required>
+            <option *ngFor='let subCategoria of subCategorias' [value]="subCategoria.subCategoryId">
+              {{subCategoria.subCategoryDescription}}
+            </option>
+          </select>
         </div>
-      </form>
-    </div>
-    <pre>{{ model | json }}</pre>
-    <pre>{{ registerForm.value | json }}</pre>
+      </div>
+
+      <div class="forms__form--input input90">
+        <label for="productDescription" class="forms__label">Producto</label>
+        <input name="productDescription" id="productDescription" type="text" [(ngModel)]="model.productDescription"
+               required>
+      </div>
+
+      <div class="registration__button">
+        <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
+          Ingresar
+        </button>
+        <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
+          Regresar
+        </button>
+      </div>
+    </form>
   </div>
-  
+</div>

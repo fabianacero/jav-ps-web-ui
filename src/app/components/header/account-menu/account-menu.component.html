@@ -1,0 +1,19 @@
+<div class="account">
+  <div class="account__menu">
+    <ul>
+      <li *ngFor="let option of options" [routerLink]="[option.routerLink]">{{option.label}}</li>
+      <li (click)="logOut()">Salir</li>
+    </ul>
+  </div>
+  <div class="account__general">
+    <p>Hola, {{session.firstName}}</p>
+    <span>({{session.userCode}})</span>
+    <div *ngIf="session.provider" class="account__provider">
+      <h2>Proveedor asociado {{session.provider.businessName}}</h2>
+      <div>
+        <span>{{session.provider.generalInformation}}</span>
+        <p>Proveedor asociado {{session.provider.address}}</p>
+      </div>
+    </div>
+  </div>
+</div>

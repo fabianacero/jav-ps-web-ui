@@ -28,6 +28,12 @@
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
+  },
+  "/advisor/*": {
+    "target": "http://localhost:7074",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
   }
   ,
   "/advisor/*": {

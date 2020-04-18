@@ -77,6 +77,10 @@
         &.products {
           border-bottom: solid $product-main-color;
         }
+
+        &.services {
+          border-bottom: solid $sevice-main-color;
+        }
       }
     }
   }
@@ -145,21 +149,6 @@
         margin-left: 0.5rem;
       }
     }
-
-    &--options {
-      background-color: #e6e6e9;
-      border-top: 0;
-      display: flex;
-      flex-direction: row;
-      height: 0;
-      justify-content: space-evenly;
-      transition: height ease-in-out 0.5s;
-
-      &.active {
-        height: 30rem;
-        border-top: solid 1px grey;
-      }
-    }
   }
 }
 
@@ -217,41 +206,3 @@
   }
 }
 
-.account {
-  align-items: baseline;
-  display: flex;
-  justify-content: space-between;
-  min-width: 33rem;
-  overflow: auto;
-
-  &__menu {
-    overflow: auto;
-
-    > ul {
-      font-size: 1.3rem;
-      list-style: none;
-
-      > li {
-        line-height: 3rem;
-        min-width: 10rem;
-
-        &:hover {
-          background: #9e9e9e;
-          cursor: pointer;
-
-        }
-      }
-    }
-  }
-
-  &__general {
-    overflow: auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
-    > p {
-      font-size: 2rem;
-    }
-  }
-}

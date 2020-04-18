@@ -7,5 +7,6 @@ export enum Routes {
   DASHBOARD = '/ver-dashboard',
   SUBCATEGORIA = '/ver-subcategoria',
   PRODUCTO = '/ver-producto',
-  PROVEEDORES = '/ver-proveedor'
+  PROVEEDORES = '/ver-proveedor',
+  PRIVIDER_QUOTES = '/cotizaciones-solicitadas'
 }

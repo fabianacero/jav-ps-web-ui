@@ -1,6 +1,6 @@
 import {QuotationRequestDetail} from './quotation-request-detail';
 
-export class QuotationRequest {
+export class  QuotationRequest {
   private _categoryId: number;
   private _personId: number;
   private _additionalInfo: string;

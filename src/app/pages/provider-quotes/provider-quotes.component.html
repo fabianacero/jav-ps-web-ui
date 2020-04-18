@@ -1,0 +1,55 @@
+<app-header></app-header>
+<ngb-alert [dismissible]="true" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">
+  <strong>Atención!</strong> Cotización envada exitosamente
+</ngb-alert>
+<div class="quote__container">
+  <div *ngIf="!showQuoteDetail" class="quote__list">
+
+    <div *ngIf="requestedQuotations">
+      <div *ngFor="let quotation of requestedQuotations" class="quote__resume {{quotation.eRequestStatus | lowercase}}">
+        <div class="quote__description">
+          <h3>Cotizacion {{quotation.eRequestStatus}}</h3>
+          <p>{{quotation.additionalInfo}}</p>
+          <span *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
+          <span *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
+        </div>
+        <div class="quote__status">
+          <h3>{{quotation.eRequestStatus}}</h3>
+          <p><a href="#" (click)="onQuoteClick(quotation)">Ver detalle</a></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="showQuoteDetail" class="quote__detail">
+    <div class="quote__elements">
+      <app-cart [quotes]="quotation.details" [skipStorage]="skipStorage"></app-cart>
+    </div>
+    <div class="quote__request">
+      <form #createQuoteForm="ngForm" (ngSubmit)="onSubmit(createQuoteForm)" class="forms">
+        <div class="quote__addition">
+          <h2>Solicitud de Cotización</h2>
+          <p class="quote__paragraph">Hemos detectado la siguiente solicitud de cotización con el siguiente
+            detalle: {{quotation.additionalInfo}}</p>
+        </div>
+
+        <div class="forms__form--input">
+          <label for="additionalInfo" class="forms__label">Descripción de la Oferta</label>
+          <textarea name="additionalInfo" id="additionalInfo" type="text" required></textarea>
+        </div>
+
+        <div class="forms__form--input">
+          <label for="quotationCost" class="forms__label">Costo de la Oferta</label>
+          <input name="quotationCost" id="quotationCost" [(ngModel)]="quoteCreation.amountTotal"  type="text" required/>
+        </div>
+
+        <div class="forms__button">
+          <button name="send" class="button" [disabled]="!createQuoteForm.valid">Realizar Cotización</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

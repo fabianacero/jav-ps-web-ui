@@ -5,6 +5,8 @@ import {Session} from '../../models/session';
 import {HttpMethod} from '../../enums/http-method.enum';
 import {Observable} from 'rxjs';
 import {AuthInfo} from '../../models/auth-info';
+import {PersonResponse} from '../../models/person-response';
+import {ProviderResponse} from '../../models/provider-response';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,14 @@ export class LoginService {
       password: btoa(loginForm.value.password)
     };
     return this.httpRequest.request(url, payload, HttpMethod.POST);
+  }
+
+  public getPersonInformation(userId): Observable<PersonResponse> {
+    return this.httpRequest.request(`/user/${userId}`, {}, HttpMethod.GET);
+  }
+
+  public getProviderInformation(providerId): Observable<ProviderResponse[]> {
+    return this.httpRequest.request(`/advisor/provider/${providerId}`, {}, HttpMethod.GET);
   }
 
   public isLogged() {

@@ -1,56 +1,24 @@
 <div class="registration__background">
-    <p [routerLink]="[routes.HOME]">otizaciones<span>.com</span></p>
-    <div class="registration__form">
-  
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
-            [appMustMatch]="['password', 'confirmPassword']" novalidate>
-        <p class="registration__title">Registrate como Proveedor <span>¡comienza a cotizar!</span></p>
-  
-        
-          <div class="forms__form--input">
-            <label for="razonSocial" class="forms__label">Razón Social</label>
-            <input name="razonSocial" id="razonSocial" type="text" [(ngModel)]="model.razonSocial" required>
-          </div>
-  
-          <div class=" forms__form--inline">
-            <div class="forms__form--select">
-              <label for="documentType" class="forms__label">Documento</label>
-              <select name="tipoDocumento" id="tipoDocumento" [(ngModel)]="model.tipoDocumento" required>
-                <option value="1">Cédula</option>
-                <option value="2">Nit</option>
-              </select>
-            </div>
-    
-            <div class="forms__form--input input90">
-              <label for="numeroDocumento" class="forms__label">Número de Documento</label>
-              <input name="numeroDocumento" id="numeroDocumento" type="text" [(ngModel)]="model.numeroDocumento"
-                     required>
-            </div>
-          </div>
+  <p [routerLink]="[routes.HOME]">otizaciones<span>.com</span></p>
+  <div class="registration__form">
 
-  
-        <div class=" forms__form--inline">
-          <div class="forms__form--select">
-            <label for="tipoCategoria" class="forms__label">Categoría</label>
-            <select name="tipoCategoria" id="tipoCategoria" [(ngModel)]="model.tipoCategoria" required>
-                <option value="1">Productos</option>
-                <option value="2">Servicios</option>
-             
-  
-            </select>
-          </div>
-          <div class="forms__form--input input90">
-            <label for="email" class="forms__label">E-mail</label>
-            <input name="email" id="email" type="text" [(ngModel)]="model.email" required>
-          </div>
-        </div>
-  
-  
-        <div class="forms__form--input">
-          <label for="direccion" class="forms__label">Dirección</label>
-          <input name="direccion" id="direccion" type="text" [(ngModel)]="model.direccion" required>
-        </div>
+    <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
+          [appMustMatch]="['password', 'confirmPassword']" novalidate>
+      <p class="registration__title">Registrate como Proveedor <span>¡comienza a cotizar!</span></p>
 
+      <div class="forms__form--input">
+        <label for="razonSocial" class="forms__label">Razón Social</label>
+        <input name="razonSocial" id="razonSocial" type="text" [(ngModel)]="model.razonSocial" required>
+      </div>
+
+      <div class=" forms__form--inline">
+        <div class="forms__form--select">
+          <label for="tipoDocumento" class="forms__label">Documento</label>
+          <select name="tipoDocumento" id="tipoDocumento" [(ngModel)]="model.tipoDocumento" required>
+            <option value="1">Cédula</option>
+            <option value="2">Nit</option>
+          </select>
+        </div>
         <div class="forms__form--input">
           <label for="telefono" class="forms__label">Teléfono</label>
           <input name="telefono" id="telefono" type="text" [(ngModel)]="model.telefono" required>
@@ -75,18 +43,49 @@
           <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
             Ingresar
           </button>
-
-          <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
-            Regresar
-          </button>
-
+        <div class="forms__form--input input90">
+          <label for="numeroDocumento" class="forms__label">Número de Documento</label>
+          <input name="numeroDocumento" id="numeroDocumento" type="text" [(ngModel)]="model.numeroDocumento"
+                 required>
         </div>
+      </div>
 
-       
+      <div class=" forms__form--inline">
+        <div class="forms__form--select">
+          <label for="tipoCategoria" class="forms__label">Categoría</label>
+          <select name="tipoCategoria" id="tipoCategoria" [(ngModel)]="model.tipoCategoria" required>
+            <option value="1">Productos</option>
+            <option value="2">Servicios</option>
+          </select>
+        </div>
+        <div class="forms__form--input input90">
+          <label for="email" class="forms__label">E-mail</label>
+          <input name="email" id="email" type="text" [(ngModel)]="model.email" required>
+        </div>
+      </div>
 
-      </form>
-    </div>
-    <pre>{{ model | json }}</pre>
-    <pre>{{ registerForm.value | json }}</pre>
+      <div class="forms__form--input">
+        <label for="direccion" class="forms__label">Dirección</label>
+        <input name="direccion" id="direccion" type="text" [(ngModel)]="model.direccion" required>
+      </div>
+
+      <div class="forms__form--input">
+        <label for="endPoint" class="forms__label">End-point</label>
+        <input name="endPoint" id="endPoint" type="text" [(ngModel)]="model.endPoint"
+               required>
+      </div>
+
+      <div class="registration__button">
+        <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
+          Ingresar
+        </button>
+
+        <button [routerLink]="[routes.HOME]" id="regresar-button" type="button" class="button">
+          Regresar
+        </button>
+
+      </div>
+
+    </form>
   </div>
-  
+</div>

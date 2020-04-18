@@ -1,0 +1,75 @@
+@import 'src/assets/scss/_variables.scss';
+
+:host-context {
+  background-color: #e6e6e9;
+  border-top: 0;
+  display: flex;
+  flex-direction: row;
+  height: 0;
+  justify-content: space-evenly;
+  transition: height ease-in-out 0.5s;
+
+  &.cliente {
+    background-color: $client-color;
+  }
+
+  &.administrador {
+    background-color: $client-color;
+  }
+
+  &.proveedor {
+    background-color: $client-color;
+  }
+
+  &.active {
+    height: 30rem;
+    border-top: solid 1px grey;
+  }
+}
+
+.account {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  min-width: 33rem;
+  overflow: auto;
+
+  &__menu {
+    overflow: auto;
+
+    > ul {
+      font-size: 1.3rem;
+      list-style: none;
+
+      > li {
+        cursor: pointer;
+        line-height: 3rem;
+        min-width: 10rem;
+        padding: 0.5rem 3rem;
+
+        &:hover {
+          background: #69baf6;
+          border-bottom: solid 1px #3789cd;
+        }
+      }
+    }
+  }
+
+  &__general {
+    overflow: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    > p {
+      font-size: 2rem;
+      margin: 2rem 3rem 0;
+    }
+  }
+
+  &__provider {
+    background: #3789cd61;
+    border-radius: 3rem;
+    padding: 1.5rem 2rem;
+  }
+}
