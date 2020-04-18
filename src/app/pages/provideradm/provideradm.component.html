@@ -3,7 +3,7 @@
   <div class="registration__form">
 
     <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm);" class="form"
-          [appMustMatch]="['password', 'confirmPassword']" novalidate>
+          novalidate>
       <p class="registration__title">Registrate como Proveedor <span>¡comienza a cotizar!</span></p>
 
       <div class="forms__form--input">
@@ -19,35 +19,17 @@
             <option value="2">Nit</option>
           </select>
         </div>
-        <div class="forms__form--input">
-          <label for="telefono" class="forms__label">Teléfono</label>
-          <input name="telefono" id="telefono" type="text" [(ngModel)]="model.telefono" required>
+
+        <div class="forms__form--input input90">
+          <label for="numeroDocumento" class="forms__label">Número de Documento</label>
+          <input name="numeroDocumento" id="numeroDocumento" type="text" [(ngModel)]="model.numeroDocumento"
+                 required>
         </div>
 
-
-        <div class="forms__form--input">
-          <label for="endPoint" class="forms__label">End-point</label>
-          <input name="endPoint" id="endPoint" type="text" [(ngModel)]="model.endPoint"
-          >
-        </div>
-
-        <div class="forms__form--input">
-          <label for="info" class="forms__label">Información General</label>
-          <input name="info" id="info" type="text" [(ngModel)]="model.info"
-          >
-        </div>
+        
+      </div>
 
 
-        <div class="registration__button">
-          <button id="login-button" type="submit" class="button" [disabled]="!registerForm.valid">
-            Ingresar
-          </button>
-          <div class="forms__form--input input90">
-            <label for="numeroDocumento" class="forms__label">Número de Documento</label>
-            <input name="numeroDocumento" id="numeroDocumento" type="text" [(ngModel)]="model.numeroDocumento"
-                   required>
-          </div>
-        </div>
 
         <div class=" forms__form--inline">
           <div class="forms__form--select">
@@ -69,9 +51,20 @@
         </div>
 
         <div class="forms__form--input">
+          <label for="telefono" class="forms__label">Teléfono</label>
+          <input name="telefono" id="telefono" type="text" [(ngModel)]="model.telefono" required>
+        </div>
+
+        <div class="forms__form--input">
           <label for="endPoint" class="forms__label">End-point</label>
           <input name="endPoint" id="endPoint" type="text" [(ngModel)]="model.endPoint"
-                 required>
+          >
+        </div>
+
+        <div class="forms__form--input">
+          <label for="info" class="forms__label">Información General</label>
+          <input name="info" id="info" type="text" [(ngModel)]="model.info"
+          >
         </div>
 
         <div class="registration__button">
@@ -84,7 +77,7 @@
           </button>
 
         </div>
-      </div>
+     
     </form>
   </div>
 </div>
