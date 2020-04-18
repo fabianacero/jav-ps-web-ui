@@ -36,7 +36,7 @@ export class ProductComponent implements OnInit {
 
   }
 
-  handleChange(pais) {
+  handleChange(  ) {
     this.product.getUsers( ).subscribe((data) => { // Success
       this.subCategorias = data[this.model.categoryType - 1].subCategories;
     },
@@ -54,6 +54,7 @@ export class ProductComponent implements OnInit {
   
     this.product.productRegistry(registerForm).subscribe((response: any) => {
       alert('Producto creado correctamente!');
+      this.model.productDescription = "";
     }, (error) => {
       registerForm.form.controls.userName.setErrors({incorrect: true});
       return false;
