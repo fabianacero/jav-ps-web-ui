@@ -20,6 +20,7 @@ export class QuotesComponent extends CartComponent implements OnInit {
   public session: Session;
   public categoryEnum = ProductCategories;
   public requestedQuotations: QuotationRequest[] = [];
+  public staticAlertClosed = true;
 
   constructor(protected utilities: Utilities, private quotationService: QuotationService, private router: Router) {
     super(utilities);
@@ -59,8 +60,11 @@ export class QuotesComponent extends CartComponent implements OnInit {
     this.quotation.personId = this.session.person.personId;
     this.quotationService.createQuotationRequest(this.quotation).subscribe((requestResult) => {
       this.utilities.removeOnSession('quotation');
-      alert('Cotización registrada exitosamente'); // To Remove!
-      window.location.href = Routes.QUOTES;
+      this.staticAlertClosed = false;
+      setTimeout(() => {
+        this.staticAlertClosed = true;
+        window.location.href = Routes.QUOTES;
+      }, 2000);
     });
     return false;
   }

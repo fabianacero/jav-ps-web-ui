@@ -23,6 +23,7 @@ export class ProviderQuotesComponent extends CartComponent implements OnInit {
   public session: Session;
   public categoryEnum = ProductCategories;
   public requestedQuotations: QuotationRequest[] = [];
+  public staticAlertClosed = true;
 
   constructor(protected utilities: Utilities, private quotationService: QuotationService, private router: Router) {
     super(utilities);
@@ -60,10 +61,12 @@ export class ProviderQuotesComponent extends CartComponent implements OnInit {
     this.quoteCreation.requestId = this.quotation.requestQuotationId;
     this.quoteCreation.details = this.quotation.details;
     this.quotationService.createQuotation(this.quoteCreation).subscribe((quotaResponse: QuotationResponse) => {
-      alert('Cotización envada exitosamente'); // To Remove!
-      window.location.href = Routes.QUOTES;
+      this.staticAlertClosed = false;
+      setTimeout(() => {
+        this.staticAlertClosed = true;
+        window.location.href = Routes.QUOTES;
+      }, 2000);
     });
-
     return false;
   }
 

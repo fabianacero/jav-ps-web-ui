@@ -42,13 +42,14 @@
       list-style: none;
 
       > li {
+        cursor: pointer;
         line-height: 3rem;
         min-width: 10rem;
+        padding: 0.5rem 3rem;
 
         &:hover {
-          background: #9e9e9e;
-          cursor: pointer;
-
+          background: #69baf6;
+          border-bottom: solid 1px #3789cd;
         }
       }
     }

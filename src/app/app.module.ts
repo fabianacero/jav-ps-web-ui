@@ -33,6 +33,8 @@ import { ProductComponent } from './pages/product/product.component';
 import { ProvideradmComponent } from './pages/provideradm/provideradm.component';
 import {AccountMenuComponent} from './components/header/account-menu/account-menu.component';
 import { ProviderQuotesComponent } from './pages/provider-quotes/provider-quotes.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { QuoteStatusPipe } from './pipes/quote-status.pipe';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { ProviderQuotesComponent } from './pages/provider-quotes/provider-quotes
     ProductComponent,
     ProvideradmComponent,
     AccountMenuComponent,
-    ProviderQuotesComponent
+    ProviderQuotesComponent,
+    QuoteStatusPipe
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,8 @@ import { ProviderQuotesComponent } from './pages/provider-quotes/provider-quotes
     HttpClientModule,
     ReactiveFormsModule,
     ChartsModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    NgbModule
   ],
   providers: [HttpRequestService],
   bootstrap: [AppComponent]

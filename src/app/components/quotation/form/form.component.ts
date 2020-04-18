@@ -60,7 +60,6 @@ export class FormComponent implements OnInit {
       this.temporalQuotations[this.categoryIndex] = this.quotation;
       this.utilities.saveOnSession('quotation', this.temporalQuotations);
       form.reset();
-      alert('Cotizacion adicionada correctamente');// To change!
     }
     return false;
   }

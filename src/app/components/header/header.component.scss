@@ -77,6 +77,10 @@
         &.products {
           border-bottom: solid $product-main-color;
         }
+
+        &.services {
+          border-bottom: solid $sevice-main-color;
+        }
       }
     }
   }

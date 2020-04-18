@@ -6,7 +6,9 @@
 
 .quote {
   &__container {
-    padding-top: 9rem; // Temporal fix
+    background: rgb(191, 191, 191);
+    background: linear-gradient(180deg, rgba(191, 191, 191, 0.8057598039215687) 22%, rgba(255, 255, 255, 0.6573004201680672) 89%);
+    padding-top: 9rem;
   }
 
   &__list {
@@ -24,7 +26,7 @@
     box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 2rem 1rem;
     width: 35rem;
 
     &:hover {
@@ -38,11 +40,19 @@
     }
 
     &.before-send {
-      background: orange;
+      background: $before-quote-color;
     }
 
     &.registered {
-      background: #59a2ff;
+      background: $registered-color;
+    }
+
+    &.in_quotation {
+      background: $in_quotation-color;
+    }
+
+    &.in_process {
+      background: $in_process-color;
     }
   }
 
@@ -62,21 +72,35 @@
     }
 
     > span {
-      background: $product-main-color;
+
       border-radius: 0rem 0rem 0rem 1rem;
       font-size: 1.3rem;
       font-weight: bold;
       padding: 0 1rem;
       color: white;
+
+      &.product {
+        background: $product-main-color;
+      }
+
+      &.service {
+        background: $sevice-main-color;
+      }
     }
   }
 
   &__status {
     display: flex;
     flex-direction: column;
-    min-width: 10rem;
+    min-width: 14rem;
     text-align: center;
     border-radius: 0 1rem 1rem 0;
+
+    & a {
+      color: #2c6097;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
   }
 
   &__detail {

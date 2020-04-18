@@ -1,4 +1,7 @@
 <app-header></app-header>
+<ngb-alert [dismissible]="true" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">
+  <strong>Atención!</strong> Cotización envada exitosamente
+</ngb-alert>
 <div class="quote__container">
   <div *ngIf="!showQuoteDetail" class="quote__list">
 

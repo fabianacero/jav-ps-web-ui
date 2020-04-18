@@ -67,7 +67,9 @@ export class CartComponent implements OnInit {
     storedSession.forEach((quotation) => {
       const quotationRequest: QuotationRequest = Object.assign(new QuotationRequest(), quotation);
       quotationRequest.assingObjectToDetail(quotationRequest.details);
-      this.temporalQuotations.push(quotationRequest);
+      if (quotationRequest.details.length > 0) {
+        this.temporalQuotations.push(quotationRequest);
+      }
     });
     this.hasTemporalQuotes = this.temporalQuotations.length > 0;
   }

@@ -1,4 +1,7 @@
 <app-header></app-header>
+<ngb-alert [dismissible]="true" *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">
+  <strong>Atención!</strong> Solicitud de cotización envada exitosamente
+</ngb-alert>
 <div class="quote__container">
   <div *ngIf="!showQuoteDetail" class="quote__list">
 
@@ -7,8 +10,8 @@
         <div class="quote__description">
           <h3>Cotizacion pendiente</h3>
           <p>Hemos detectado la siguiente cotización que ha quedado en estado pendiente de envío</p>
-          <span *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
-          <span *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
+          <span class="product" *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
+          <span class="service" *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
         </div>
         <div class="quote__status">
           <h3>Por enviar</h3>
@@ -20,13 +23,13 @@
     <div *ngIf="requestedQuotations">
       <div *ngFor="let quotation of requestedQuotations" class="quote__resume {{quotation.eRequestStatus | lowercase}}">
         <div class="quote__description">
-          <h3>Cotizacion {{quotation.eRequestStatus}}</h3>
+          <h3>Cotizacion {{quotation.eRequestStatus | quoteStatus}}</h3>
           <p>{{quotation.additionalInfo}}</p>
-          <span *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
-          <span *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
+          <span class="product" *ngIf="quotation.categoryId == categoryEnum.PRODUCT">producto</span>
+          <span class="service" *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
         </div>
         <div class="quote__status">
-          <h3>{{quotation.eRequestStatus}}</h3>
+          <h3>{{quotation.eRequestStatus | quoteStatus}}</h3>
           <p><a href="#" (click)="onQuoteClick(quotation)">Ver detalle</a></p>
         </div>
       </div>
