@@ -26,26 +26,7 @@
     </nav>
   </div>
 
-  <div *ngIf="session" class="header__account--options">
-    <div class="account">
-      <div class="account__menu">
-        <ul>
-          <li>Cotizaciones</li>
-          <li>Mis Datos</li>
-          <li>Seguridad</li>
-          <li [routerLink]="[routes.DASHBOARD]" >DashBoard</li>
-          <li [routerLink]="[routes.SUBCATEGORIA]" >Sub Categorías</li>
-          <li [routerLink]="[routes.PRODUCTO]" >Productos</li>
-          <li [routerLink]="[routes.PROVEEDORES]" >Proveedores</li>
-          <li (click)="logOut()">Salir</li>
-        </ul>
-      </div>
-      <div class="account__general">
-        <p>Hola, {{session.firstName}}</p>
-        <span>{{session.userCode}}</span>
-        <a>Mi cuenta</a>
-      </div>
-    </div>
-  </div>
+  <app-account-menu *ngIf="session" class="header__account--options {{this.session.profile | lowercase}}"
+                    [session]="session"></app-account-menu>
 
 </div>

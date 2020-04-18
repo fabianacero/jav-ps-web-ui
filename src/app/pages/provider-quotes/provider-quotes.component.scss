@@ -1,10 +1,17 @@
 @import 'src/assets/scss/_variables.scss';
+@import 'src/assets/scss/_forms.scss';
 
 :host-context {
   font-family: "Baloo 2";
 }
 
 .quote {
+  font-size: 1.2rem;
+
+  &__addition {
+    font-size: 1.8rem;
+  }
+
   &__container {
     padding-top: 9rem; // Temporal fix
   }
@@ -55,10 +62,12 @@
 
     > p {
       margin: 1rem;
+      font-size: 1.2rem;
     }
 
     > h3 {
       margin: 1rem;
+      font-size: 1.3rem;
     }
 
     > span {
@@ -72,11 +81,24 @@
   }
 
   &__status {
+    border-radius: 0 1rem 1rem 0;
     display: flex;
     flex-direction: column;
+    font-size: 1.2rem;
     min-width: 10rem;
     text-align: center;
-    border-radius: 0 1rem 1rem 0;
+
+    > h3 {
+      font-size: 1.3rem;
+    }
+
+    & > p {
+      margin: 0;
+    }
+
+    & a {
+      font-size: 1.2rem;
+    }
   }
 
   &__detail {

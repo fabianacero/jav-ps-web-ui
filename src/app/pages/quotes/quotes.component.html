@@ -43,9 +43,8 @@
         <div class="forms__form--inline">
           <h2>Solicitar Cotización</h2>
           <p class="quote__paragraph">Nuestros proveedores tomarán su cotización y le enviarán a oferta al
-            correo {{session.userCode}}@mail.com y
-            al número telefónico {{session.firstName}} por SMS. Si ésta no es la información correcta, por favor
-            actualice su perfil</p>
+            correo {{session.person.email}} y al número telefónico {{session.person.phoneNumber}} por SMS.
+            Si ésta no es la información correcta, por favor actualice su perfil</p>
         </div>
         <div class="forms__form--inline">
           <div class="forms__form--input">
@@ -53,7 +52,7 @@
                       required></textarea>
           </div>
         </div>
-        <div class="forms__button">
+        <div *ngIf="!skipStorage" class="forms__button">
           <button name="send" class="button" [disabled]="!requestQuoteForm.valid">Agregar al Cotizador</button>
         </div>
       </form>

@@ -31,6 +31,8 @@ import { ChartsModule } from 'ng2-charts';
 import { SubcategoryComponent } from './pages/subcategory/subcategory.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ProvideradmComponent } from './pages/provideradm/provideradm.component';
+import {AccountMenuComponent} from './components/header/account-menu/account-menu.component';
+import { ProviderQuotesComponent } from './pages/provider-quotes/provider-quotes.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ProvideradmComponent } from './pages/provideradm/provideradm.component'
     EstadisticaComponent,
     SubcategoryComponent,
     ProductComponent,
-    ProvideradmComponent
+    ProvideradmComponent,
+    AccountMenuComponent,
+    ProviderQuotesComponent
   ],
   imports: [
     BrowserModule,

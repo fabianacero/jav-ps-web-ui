@@ -2,7 +2,6 @@ import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
 import {Routes} from '../../enums/routes.enum';
 import {Session} from '../../models/session';
 import {Utilities} from '../../utilities/utilities';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +13,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public routes = Routes;
   public session: Session;
 
-  constructor(private utilities: Utilities, private router: Router) {
+  constructor(private utilities: Utilities) {
   }
 
   ngOnInit(): void {
@@ -27,11 +26,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   private checkForSession() {
     this.session = this.utilities.getFromSessionObject('session', this.session);
-  }
-
-  public logOut() {
-    this.utilities.removeOnSession('session');
-    this.router.navigate([Routes.HOME]);
   }
 
   private addMenuEvents() {
@@ -153,7 +147,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
     const start = window.pageYOffset;
     const startTime = 'now' in window.performance ? performance.now() : new Date().getTime();
-
     const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
     const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
