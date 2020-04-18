@@ -30,8 +30,8 @@ export class ProvideradmComponent implements OnInit {
     }
     
     this.provideradm.providerAdmRegistry(registerForm).subscribe((response: any) => {
-      alert('Sub Categoría creada correctamente!');
-      
+      alert('Proveedor creado correctamente!!');
+      this.router.navigate([Routes.HOME]);
     }, (error) => {
       registerForm.form.controls.userName.setErrors({incorrect: true});
       return false;

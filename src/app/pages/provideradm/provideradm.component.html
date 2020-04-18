@@ -50,12 +50,23 @@
           <label for="direccion" class="forms__label">Dirección</label>
           <input name="direccion" id="direccion" type="text" [(ngModel)]="model.direccion" required>
         </div>
+
+        <div class="forms__form--input">
+          <label for="telefono" class="forms__label">Teléfono</label>
+          <input name="telefono" id="telefono" type="text" [(ngModel)]="model.telefono" required>
+        </div>
   
         
           <div class="forms__form--input">
             <label for="endPoint" class="forms__label">End-point</label>
             <input name="endPoint" id="endPoint" type="text" [(ngModel)]="model.endPoint" 
-                   required>
+                   >
+          </div>
+
+          <div class="forms__form--input">
+            <label for="info" class="forms__label">Información General</label>
+            <input name="info" id="info" type="text" [(ngModel)]="model.info" 
+                   >
           </div>
   
        
