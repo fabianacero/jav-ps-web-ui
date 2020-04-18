@@ -7,6 +7,8 @@ export class ProviderAdm {
     private _email          : string;
     private _direccion      : string;
     private _endPoint       : string;
+    private _telefono       : string;
+    private _info       : string;
 
     get razonSocial(): string {
         return this._razonSocial;
@@ -62,6 +64,22 @@ export class ProviderAdm {
 
     set endPoint(value: string) {
         this._endPoint = value;
+    }
+
+    get telefono(): string {
+        return this._telefono;
+    }
+
+    set telefono(value: string) {
+        this._telefono = value;
+    }
+
+    get info(): string {
+        return this._info;
+    }
+
+    set info(value: string) {
+        this._info = value;
     }
 
 }

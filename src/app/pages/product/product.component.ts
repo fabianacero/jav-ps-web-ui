@@ -36,6 +36,16 @@ export class ProductComponent implements OnInit {
 
   }
 
+  handleChange(  ) {
+    this.product.getUsers( ).subscribe((data) => { // Success
+      this.subCategorias = data[this.model.categoryType - 1].subCategories;
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
+ }
+
   public onSubmit(registerForm: NgForm) {
 
     if (!registerForm.valid) {
@@ -44,6 +54,7 @@ export class ProductComponent implements OnInit {
   
     this.product.productRegistry(registerForm).subscribe((response: any) => {
       alert('Producto creado correctamente!');
+      this.model.productDescription = "";
     }, (error) => {
       registerForm.form.controls.userName.setErrors({incorrect: true});
       return false;

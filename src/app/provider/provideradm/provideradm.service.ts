@@ -12,10 +12,18 @@ export class ProvideradmService {
 
   public providerAdmRegistry(registerForm): Observable<any> {
     const payload = {
-      subCategoryId: registerForm.value.subCategoryType,
-      productServiceDescription: registerForm.value.productDescription,
+      categoryId: registerForm.value.tipoCategoria,
+      businessName: registerForm.value.razonSocial,
+      address: registerForm.value.direccion,
+      endPoint: registerForm.value.endPoint,
+      generalInformation: registerForm.value.info,
+      identificationType: registerForm.value.tipoDocumento,
+      identificationNumber: registerForm.value.numeroDocumento,
+      email: registerForm.value.email,
+      phoneNumber: registerForm.value.telefono
+
     };
     
-    return this.httpRequest.request('/product-service', payload, HttpMethod.POST);
+    return this.httpRequest.request('/advisor', payload, HttpMethod.POST);
   }
 }
