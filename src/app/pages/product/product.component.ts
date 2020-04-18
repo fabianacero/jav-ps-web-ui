@@ -36,6 +36,16 @@ export class ProductComponent implements OnInit {
 
   }
 
+  handleChange(pais) {
+    this.product.getUsers( ).subscribe((data) => { // Success
+      this.subCategorias = data[this.model.categoryType - 1].subCategories;
+    },
+    (error) => {
+      console.error(error);
+    }
+  );
+ }
+
   public onSubmit(registerForm: NgForm) {
 
     if (!registerForm.valid) {

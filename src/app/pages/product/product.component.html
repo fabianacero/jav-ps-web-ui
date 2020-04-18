@@ -10,7 +10,7 @@
         <div class=" forms__form--inline">
           <div class="forms__form--select">
             <label for="categoryType" class="forms__label">Categoria</label>
-            <select name="categoryType" id="categoryType" [(ngModel)]="model.categoryType" required>
+            <select name="categoryType" id="categoryType" (change)="handleChange(item)" [(ngModel)]="model.categoryType" required>
               <option value="1">PRODUCTOS</option>
               <option value="2">SERVICIOS</option>
             </select>
@@ -19,7 +19,7 @@
           <div class="forms__form--select">
             <label for="subCategoryType" class="forms__label">Sub Categoria</label>
             <select name="subCategoryType" id="subCategoryType" [(ngModel)]="model.subCategoryType" required>
-              <option *ngFor='let subCategoria of subCategorias' [value]="subCategoria.subCategoryId">
+              <option *ngFor='let subCategoria of subCategorias'  [value]="subCategoria.subCategoryId">
                 {{subCategoria.subCategoryDescription}}
               </option>
             </select>
