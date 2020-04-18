@@ -1,7 +1,7 @@
 @import 'src/assets/scss/_variables.scss';
 
 .header {
-  background-color: #f8f8f8;
+  background-color: $gray-color;
   border-bottom: 1px solid gray;
   font-family: "Baloo 2";
   position: fixed;
@@ -51,6 +51,7 @@
           height: 40rem;
           color: #ccc;
           visibility: visible;
+
           & * {
             visibility: visible;
             height: auto;

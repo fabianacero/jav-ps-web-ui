@@ -13,6 +13,7 @@
     padding-left: 1.5rem;
     width: 100%;
     border-bottom: solid 1px $light-gray-color;
+
     &:hover {
       background-color: $whitesmoke-color;
     }
@@ -38,6 +39,7 @@
   }
 
   &__footer {
-
+    background: $gray-color;
+    text-align: center;
   }
 }

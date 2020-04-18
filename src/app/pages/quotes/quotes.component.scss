@@ -6,8 +6,10 @@
 
 .quote {
   &__container {
+    display: flex;
+    justify-content: center;
     background: rgb(191, 191, 191);
-    background: linear-gradient(180deg, rgba(191, 191, 191, 0.8057598039215687) 22%, rgba(255, 255, 255, 0.6573004201680672) 89%);
+    background: linear-gradient(180deg, rgb(208, 231, 250) 0%, rgb(255, 255, 255) 100%);
     padding-top: 9rem;
   }
 
@@ -57,7 +59,7 @@
   }
 
   &__description {
-    background: #f8f8f8;
+    background: $gray-color;
     border-radius: 1rem 0 0 1rem;
     font-size: 1.2rem;
     width: -moz-available;
@@ -104,12 +106,18 @@
   }
 
   &__detail {
+    background: #afdbfc;
+    -moz-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
+    -webkit-box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
     border-radius: 1rem;
     border: solid 1px gray;
+    box-shadow: -4px 3px 17px -8px rgba(128, 128, 128, 0.95);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin: 1rem;
-    min-height: 25rem
+    padding: 3rem 1rem;
+    width: 40rem;
   }
 
   &__elements {
@@ -140,9 +148,14 @@
     max-width: 25rem;
   }
 
-  @media (min-width: $breakpoint-desktop) {
+  @media (min-width: $breakpoint-tablet) {
     &__resume {
       width: 50rem;
+    }
+
+    &__detail {
+      width: 60rem;
+      flex-direction: row;
     }
   }
 }

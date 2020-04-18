@@ -52,7 +52,7 @@
         <div class="forms__form--inline">
           <div class="forms__form--input">
             <textarea name="additionalInfo" id="additionalInfo" type="text" [(ngModel)]="quotation.additionalInfo"
-                      required></textarea>
+                      required [disabled]="skipStorage"></textarea>
           </div>
         </div>
         <div *ngIf="!skipStorage" class="forms__button">
