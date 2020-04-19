@@ -29,7 +29,7 @@
           <span class="service" *ngIf="quotation.categoryId == categoryEnum.SERVICE">servicio</span>
         </div>
         <div class="quote__status">
-          <h3>{{quotation.eRequestStatus | quoteStatus}}</h3>
+            <h3>{{quotation.eRequestStatus | quoteStatus}}</h3>
           <p><a href="#" (click)="onQuoteClick(quotation)">Ver detalle</a></p>
         </div>
       </div>

@@ -6,7 +6,7 @@
 }
 
 .button {
-  background-color: #232f3e;
+  background-color: $azul-color-corporativo;
   border-radius: 0.6rem;
   border: none;
   color: white;
@@ -28,7 +28,7 @@ button:disabled {
 
 .registration {
   &__background {
-    background: url("src/assets/images/logo.png") #232f3e no-repeat 2rem top;
+    background: url("src/assets/images/logo.png") $azul-color-corporativo no-repeat 2rem top;
     background-size: 6rem;
     display: flex;
     height: 20rem;

@@ -44,7 +44,9 @@ export class QuotationService {
         productId: detail.productId,
         productDescription: detail.productDescription,
         quantity: detail.quantity,
-        additionalInformation: detail.additionalInformation
+        additionalInformation: detail.additionalInformation,
+        amount: detail.amount,
+        description: detail.description
       });
     });
 

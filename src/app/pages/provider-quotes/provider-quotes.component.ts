@@ -36,9 +36,13 @@ export class ProviderQuotesComponent extends CartComponent implements OnInit {
   }
 
   onQuoteClick(quote: QuotationRequest) {
+    const providerId = this.session.providerId;
     this.showQuoteDetail = true;
     this.skipStorage = true;
     this.quotation = quote;
+    this.quoteCreation.providerId = providerId;
+    this.quoteCreation.requestId = this.quotation.requestQuotationId;
+    this.quoteCreation.details = quote.details;
     return false;
   }
 
@@ -56,15 +60,14 @@ export class ProviderQuotesComponent extends CartComponent implements OnInit {
   }
 
   onSubmit(requestQuoteForm: NgForm) {
-    const providerId = this.session.providerId;
-    this.quoteCreation.providerId = providerId;
-    this.quoteCreation.requestId = this.quotation.requestQuotationId;
-    this.quoteCreation.details = this.quotation.details;
+    let total = Number(0);
+    this.quoteCreation.details.forEach(detail => total += Number(detail.amount));
+    this.quoteCreation.amountTotal = total;
     this.quotationService.createQuotation(this.quoteCreation).subscribe((quotaResponse: QuotationResponse) => {
       this.staticAlertClosed = false;
       setTimeout(() => {
         this.staticAlertClosed = true;
-        window.location.href = Routes.QUOTES;
+        window.location.href = Routes.PRIVIDER_QUOTES;
       }, 2000);
     });
     return false;

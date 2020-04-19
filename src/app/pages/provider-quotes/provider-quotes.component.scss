@@ -8,6 +8,12 @@
 .quote {
   font-size: 1.2rem;
 
+  &__noitems {
+    color: gainsboro;
+    font-size: 3rem;
+    text-align: center;
+  }
+
   &__addition {
     font-size: 1.8rem;
   }
@@ -45,11 +51,19 @@
     }
 
     &.before-send {
-      background: orange;
+      background: $before-quote-color;
     }
 
     &.registered {
-      background: #59a2ff;
+      background: $registered-color;
+    }
+
+    &.in_quotation {
+      background: $in_quotation-color;
+    }
+
+    &.in_process {
+      background: $in_process-color;
     }
   }
 
@@ -136,6 +150,53 @@
 
   &__paragraph {
     max-width: 25rem;
+  }
+
+  &__table {
+    display: table;
+    margin: 0 auto;
+    border-radius: 1rem;
+  }
+
+  &__header {
+    display: table-header-group;
+    font-size: 1.5rem;
+    font-weight: 600;
+
+    > div {
+      background-color: #3e8cce;
+      color: white;
+
+      &:first-of-type {
+        border-radius: 1rem 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 1rem 0 0;
+      }
+    }
+  }
+
+  &__footer {
+    display: table-footer-group;
+  }
+
+  &__row {
+    display: table-row;
+  }
+
+  &__column {
+    background: #ddd;
+    display: table-cell;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+
+    .forms__form--input {
+      margin: 0;
+      width: 13rem;
+    }
   }
 
   @media (min-width: $breakpoint-desktop) {

@@ -3,6 +3,9 @@ export class QuotationRequestDetail {
   private _productDescription: string;
   private _quantity: number;
   private _additionalInformation: string;
+  private _amount: number;
+  private _discount: number;
+  private _description: string;
 
   constructor(quotationDetail?) {
     if (quotationDetail) {
@@ -43,5 +46,29 @@ export class QuotationRequestDetail {
 
   set additionalInformation(value: string) {
     this._additionalInformation = value;
+  }
+
+  get amount(): number {
+    return this._amount;
+  }
+
+  set amount(value: number) {
+    this._amount = value;
+  }
+
+  get discount(): number {
+    return this._discount;
+  }
+
+  set discount(value: number) {
+    this._discount = value;
+  }
+
+  get description(): string {
+    return this._description;
+  }
+
+  set description(value: string) {
+    this._description = value;
   }
 }
