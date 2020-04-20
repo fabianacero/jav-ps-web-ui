@@ -87,10 +87,6 @@ export class EstadisticaComponent implements OnInit {
     //--------------INICIO PRODUCTOS SOLICITADOS------------------
     this.Estadistica.getSolicitudesPorCategoria( 1 ).subscribe(
       (data) => {  
-        this.listaProductos = [];
-       this.listaCantProductos = [];
-       this.listaProductosCotiza = [];
-       this.listaCantProductosCotiza = [];
 
         for( var i = 0; i<data.length; i++){
           for( var j = 0; j< data[i].details.length; j++){
@@ -181,6 +177,7 @@ export class EstadisticaComponent implements OnInit {
             {data: this.listaCantProductos, label: 'Solicitados'},
             {data: lista, label: 'Cotizados'}
           ];
+
         },
         (error) => {
           console.error(error);
