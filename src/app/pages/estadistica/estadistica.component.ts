@@ -54,7 +54,7 @@ export class EstadisticaComponent implements OnInit {
 
   //radar
   public listCanCotizados = [];
-  public radarChartLabels = ['REGISTERED', 'IN_REQUEST', 'IN_PROCESS', 'FINISHED'];
+  public radarChartLabels = ['REGISTERED', 'IN_REQUEST', 'IN_QUOTATION', 'FINISHED'];
   public radarChartCantProd = [0, 0, 0, 0];
   public radarChartCantServ = [0, 0, 0, 0];
   public radarChartType = 'radar';
@@ -86,7 +86,8 @@ export class EstadisticaComponent implements OnInit {
 
     //--------------INICIO PRODUCTOS SOLICITADOS------------------
     this.Estadistica.getSolicitudesPorCategoria( 1 ).subscribe(
-      (data) => {   
+      (data) => {  
+
         for( var i = 0; i<data.length; i++){
           for( var j = 0; j< data[i].details.length; j++){
             var indice = this.listaProductos.indexOf( data[i].details[j].productDescription);
@@ -98,6 +99,7 @@ export class EstadisticaComponent implements OnInit {
             }
           }
         }
+        
       },
       (error) => {
         console.error(error);
@@ -119,6 +121,20 @@ export class EstadisticaComponent implements OnInit {
               }
             }
           }
+          var lista = [];
+          for(var i = 0; i< this.listaCantProductos.length;i++){
+            var indice =  this.listaProductosCotiza.indexOf( this.listaProductos[i] );
+            if(indice>=0){
+              lista[i] = this.listaCantProductosCotiza[ indice];
+            }else{
+              lista[i] = 0;
+            }
+          }
+          this.barChartLabels = this.listaProductos;
+          this.barChartData = [
+            {data: this.listaCantProductos, label: 'Solicitados'},
+            {data: lista, label: 'Cotizados'}
+          ];
         },
         (error) => {
           console.error(error);
@@ -127,39 +143,13 @@ export class EstadisticaComponent implements OnInit {
       //--------------FIN SERVICIOS SOLICITADOS------------------
 
       //--------------INICIO PRODUCTOS COTIZADOS------------------
+      
       this.Estadistica.getCotizacionesPorCategoria( 1 ).subscribe(
         (data) => { // Success   
-          
+          console.error("*INICIO PRODUCTOS COTIZADOS*");    
           for( var i = 0; i<data.length; i++){
             for( var j = 0; j< data[i].details.length; j++){ 
               var indice =  this.listaProductos.indexOf( data[i].details[j].productDescription);
-
-             if(indice>=0){
-                this.listaProductosCotiza[ indice] = data[i].details[j].productDescription;
-                
-                if(this.listaCantProductosCotiza[ indice] == null){
-                  this.listaCantProductosCotiza[ indice] = data[i].details[j].quantity;
-                }else{
-                  this.listaCantProductosCotiza[ indice] += data[i].details[j].quantity;
-                } 
-              }
-            }
-          }
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-      //--------------FIN PRODUCTOS COTIZADOS------------------
-
-      //--------------INICIO SERVICIOS COTIZADOS------------------
-      this.Estadistica.getCotizacionesPorCategoria( 2 ).subscribe(
-        (data) => { // Success   
-          
-          for( var i = 0; i<data.length; i++){
-            for( var j = 0; j< data[i].details.length; j++){
-               
-             var indice =  this.listaProductos.indexOf( data[i].details[j].productDescription);
 
              if(indice>=0){
                 this.listaProductosCotiza[ indice] = data[i].details[j].productDescription;
@@ -187,6 +177,53 @@ export class EstadisticaComponent implements OnInit {
             {data: this.listaCantProductos, label: 'Solicitados'},
             {data: lista, label: 'Cotizados'}
           ];
+
+        },
+        (error) => {
+          console.error(error);
+        }
+       
+      );
+      
+      //--------------FIN PRODUCTOS COTIZADOS------------------
+
+      //--------------INICIO SERVICIOS COTIZADOS------------------
+      this.Estadistica.getCotizacionesPorCategoria( 2 ).subscribe(
+        (data) => { // Success   
+          //console.error("*INICIO SERVICIOS COTIZADOS*");
+          //console.error("++++"+this.listaCantProductosCotiza);
+         for( var i = 0; i<data.length; i++){
+            for( var j = 0; j< data[i].details.length; j++){
+               
+             var indice =  this.listaProductos.indexOf( data[i].details[j].productDescription);
+
+             if(indice>=0){
+                this.listaProductosCotiza[ indice] = data[i].details[j].productDescription;
+                
+                if(this.listaCantProductosCotiza[ indice] == null){
+                  this.listaCantProductosCotiza[ indice] = data[i].details[j].quantity;
+                }else{
+                  this.listaCantProductosCotiza[ indice] += data[i].details[j].quantity;
+                } 
+              }
+            }
+          }
+          
+          var lista = [];
+          for(var i = 0; i< this.listaCantProductos.length;i++){
+            var indice =  this.listaProductosCotiza.indexOf( this.listaProductos[i] );
+            if(indice>=0){
+              lista[i] = this.listaCantProductosCotiza[ indice];
+            }else{
+              lista[i] = 0;
+            }
+          }
+          this.barChartLabels = this.listaProductos;
+          this.barChartData = [
+            {data: this.listaCantProductos, label: 'Solicitados'},
+            {data: lista, label: 'Cotizados'}
+          ];
+          //console.error("*FIN SERVICIOS COTIZADOS*");
         },
         (error) => {
           console.error(error);
@@ -205,7 +242,14 @@ export class EstadisticaComponent implements OnInit {
         for( var i = 0; i<data.length; i++){
           var indice = this.radarChartLabels.indexOf( data[i].eRequestStatus);
           this.radarChartCantProd[ indice ] += 1; 
+          console.error("**"+  indice + "-- "+data[i].eRequestStatus + "--"+this.radarChartCantProd[ indice ] );
         }
+        //console.error(data);
+        console.error("-->"+this.radarChartCantProd);
+        this.radarChartData = [
+          {data: this.radarChartCantProd, label: 'PRODUCTOS'},
+          {data: this.radarChartCantServ, label: 'SERVICIOS'}
+        ];
       },
       (error) => {
         console.error(error);
@@ -216,6 +260,8 @@ export class EstadisticaComponent implements OnInit {
     this.Estadistica.getSolicitudesPorCategoria( 2 ).subscribe(
       (data) => {  
         for( var i = 0; i<data.length; i++){
+
+          
           var indice = this.radarChartLabels.indexOf( data[i].eRequestStatus);
           this.radarChartCantServ[ indice ] += 1;
         }
